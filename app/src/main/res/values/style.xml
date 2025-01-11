@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme colors here -->
+        <item name="colorPrimary">#698C56</item> <!-- Button and primary color -->
+        <item name="colorPrimaryDark">#F9F1E4</item> <!-- Status bar color -->
+        <item name="colorAccent">#698C56</item> <!-- Accent color -->
+    </style>
+</resources>
