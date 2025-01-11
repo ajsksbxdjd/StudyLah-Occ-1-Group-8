@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+<<<<<<< HEAD
         <item>@font/archivo</item>
         <item>@font/pt_sans</item>
+=======
+        <item>@font/raleway_bold</item>
+        <item>@font/raleway_semibold</item>
+>>>>>>> 5f563138ec74e132deec30404f9a44e7cca6943a
     </array>
 </resources>
