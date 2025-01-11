@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#F9F1E4</color> <!-- Replace with your desired color -->
+    <color name="primary_variant_color">#698C56</color> <!-- Replace with your desired color -->
+    <color name="secondary_color">#FFFFFF</color> <!-- Replace with your desired color -->
 </resources>

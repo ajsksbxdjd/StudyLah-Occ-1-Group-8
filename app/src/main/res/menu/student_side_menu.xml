@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Main Navigation Items -->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/side_nav_self_learning"
+            android:icon="@drawable/self_learning_icon"
+            android:title="Self Learning" />
+
+        <!-- Sub-items under Self Learning -->
+        <group android:id="@+id/group_self_learning" android:visible="false">
+            <item
+                android:id="@+id/side_nav_flashcards"
+                android:title="Flashcards" />
+            <item
+                android:id="@+id/side_nav_todo_list"
+                android:title="To-Do List" />
+            <item
+                android:id="@+id/side_nav_pomodoro_timer"
+                android:title="Pomodoro Timer" />
+        </group>
+
+        <item
+            android:id="@+id/side_nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
+        <item
+            android:id="@+id/side_nav_marketplace"
+            android:icon="@drawable/nav_marketplace_icon"
+            android:title="Marketplace" />
+        <item
+            android:id="@+id/side_nav_find_tutor"
+            android:icon="@drawable/nav_mentoring_icon"
+            android:title="Find a Tutor" />
+        <item
+            android:id="@+id/side_nav_events"
+            android:icon="@drawable/nav_events_icon"
+            android:title="Events" />
+    </group>
+</menu>

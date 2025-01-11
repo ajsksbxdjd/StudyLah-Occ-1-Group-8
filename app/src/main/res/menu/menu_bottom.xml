@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home_icon"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_marketplace"
+            android:icon="@drawable/nav_marketplace_icon"
+            android:title="Marketplace" />
+        <item
+            android:id="@+id/nav_mentoring"
+            android:icon="@drawable/nav_mentoring_icon"
+            android:title="Mentoring" />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/nav_events_icon"
+            android:title="Events" />
+    </menu>

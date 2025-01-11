@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:radius="12dp"
+    app:cardBackgroundColor="#CC87AB77"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="411dp"
+        android:layout_height="128dp">
+
+        <!-- Profile Picture -->
+
+        <!-- Details Section -->
+
+        <ImageView
+            android:id="@+id/tutor_propic"
+            android:layout_width="101dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/find_a_tutor_icon" />
+
+        <LinearLayout
+            android:id="@+id/tutor_details"
+            android:layout_width="285dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/tutor_propic"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tutor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tutor Name"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tutor_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tutor_registration_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registered on: "
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tutor_university"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="University"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tutor_subjects"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subjects"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
