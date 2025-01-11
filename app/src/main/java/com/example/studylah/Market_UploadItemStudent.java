@@ -74,7 +74,7 @@ public class Market_UploadItemStudent extends FragmentActivity implements OnMapR
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri selectedImageUri;//To store the selected image URI
 
-    private String student_username;
+    private String username;
     private String student_name;
     private String student_email;
 
@@ -84,7 +84,7 @@ public class Market_UploadItemStudent extends FragmentActivity implements OnMapR
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_upload_item_student);
 
-        student_username = getIntent().getStringExtra("student_username");
+        username = getIntent().getStringExtra("username");
 
         // Initialize ImageButton
         ImageButton imageButton = findViewById(R.id.imageButton1);
@@ -245,7 +245,7 @@ public class Market_UploadItemStudent extends FragmentActivity implements OnMapR
 
                     for (int i = 0; i < items.length(); i++) {
                         JSONObject item = items.getJSONObject(i);
-                        if (student_username.equals(item.getString("username"))) {
+                        if (username.equals(item.getString("username"))) {
                             itemFound = true;
 
                             student_name = item.getString("display_name");

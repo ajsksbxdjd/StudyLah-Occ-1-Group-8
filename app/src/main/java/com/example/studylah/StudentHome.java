@@ -125,8 +125,8 @@ public class StudentHome extends AppCompatActivity {
                     startActivity(intent);
                 } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
-                intent.putExtra("student_username", username);
-                startActivityForResult(intent, 1);
+                intent.putExtra("username", username);
+                startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection
             return true;
@@ -143,7 +143,7 @@ public class StudentHome extends AppCompatActivity {
                 startActivity(intent);
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
-                intent.putExtra("student_username", username);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
                 // Set the mentoring tab as selected
