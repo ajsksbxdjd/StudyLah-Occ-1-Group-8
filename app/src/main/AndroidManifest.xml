@@ -68,6 +68,16 @@
             android:name=".Pomodoro"
             android:exported="false"/>
 
+        <activity android:name=".TodoCreateCategoryActivity" />
+        <activity android:name=".TodoAllTasksActivity" />
+        <activity android:name=".TodoCreateTaskActivity" />
+        <activity android:name=".TodoCategoryActivity" />
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".TodoMainActivity"
+            android:exported="false" />
+
         <activity android:name=".FlashcardCreateDeckActivity" />
         <activity android:name=".FlashcardCreateFlashcardActivity" />
         <activity android:name=".FlashcardStudyActivity" />

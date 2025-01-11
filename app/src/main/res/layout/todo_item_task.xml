@@ -1,0 +1,115 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/taskCardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    android:clipToOutline="true"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Completion Circle -->
+        <ImageView
+            android:id="@+id/taskCompletionCircle"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/circle_unchecked"
+            android:layout_centerVertical="true"
+            android:padding="5dp"/>
+
+        <!-- Task Name -->
+        <TextView
+            android:id="@+id/taskName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/taskCompletionCircle"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Task Name"
+            android:textColor="#4A683B"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Task Category (Fixed Transparent Outline) -->
+        <TextView
+            android:id="@+id/taskCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/taskName"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/taskCompletionCircle"
+            android:background="@drawable/category_outline"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="6dp"
+            android:text="Category"
+            android:textColor="#4A683B"
+            android:textSize="14sp" />
+
+        <!-- Due Time (Bigger & Centered) -->
+
+        <!-- Task Priority (Fixed Transparent Outline) -->
+        <TextView
+            android:id="@+id/taskDueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/taskCategory"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/taskCompletionCircle"
+            android:background="@drawable/category_outline"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="6dp"
+            android:text="Due Date"
+            android:textColor="#4A683B"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/taskTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp"
+            android:text="6:00 PM"
+            android:layout_marginTop="9dp"
+            android:layout_alignParentTop="true"
+            android:textColor="#4A683B"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/taskPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/taskTime"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="-39dp"
+            android:background="@drawable/category_outline"
+            android:fontFamily="@font/raleway_semibold"
+            android:padding="6dp"
+            android:text="Low Priority"
+            android:textColor="#4A683B"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/taskOptionsMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/taskPriority"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="-31dp"
+            android:background="@null"
+            android:contentDescription="More Options"
+            android:src="@drawable/baseline_menu_24" />
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

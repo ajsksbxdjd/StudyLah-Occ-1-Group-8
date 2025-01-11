@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6EFDD"
+    android:padding="20dp">
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Create Category"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button" />
+
+
+    <TextView
+        android:id="@+id/add_category_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Add new category"
+        android:textColor="#6B705C"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <!-- Input Field -->
+    <EditText
+        android:id="@+id/category_name_input"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/input_field_background"
+        android:fontFamily="@font/raleway_semibold"
+        android:hint="Enter category name"
+        android:padding="12dp"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_category_label" />
+
+    <!-- Buttons -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/category_name_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/create_button"
+            android:layout_width="100dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="#4A683B"
+            android:elevation="4dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Create"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            app:cornerRadius="10dp"
+            app:rippleColor="?attr/colorControlHighlight"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button"
+            android:layout_width="100dp"
+            android:layout_height="46dp"
+            android:backgroundTint="#F6EFDD"
+            android:elevation="4dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="Cancel"
+            android:textColor="#4A683B"
+            android:textSize="15sp"
+            app:cornerRadius="10dp"
+            app:rippleColor="?attr/colorControlHighlight"
+            app:strokeColor="#4A683B"
+            app:strokeWidth="2dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

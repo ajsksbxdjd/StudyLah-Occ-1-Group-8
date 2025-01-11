@@ -3,4 +3,10 @@
     <color name="primary_color">#F9F1E4</color> <!-- Replace with your desired color -->
     <color name="primary_variant_color">#698C56</color> <!-- Replace with your desired color -->
     <color name="secondary_color">#FFFFFF</color> <!-- Replace with your desired color -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green_completed">#93B495</color>
+    <color name="red">#E4080A</color>
+    <color name="green">#7DDA58</color>
+    <color name="gray">#CECECE</color>
 </resources>

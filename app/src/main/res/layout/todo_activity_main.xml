@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/taskCardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F9F1E4">
+
+    <!-- Search Bar -->
+
+    <TextView
+        android:id="@+id/Main_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_bold"
+        android:text="To-Do List"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/back_button"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="@id/back_button" />
+
+    <!-- Categories Section -->
+
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_field_background"
+        android:drawableStart="@drawable/baseline_search_24"
+        android:drawablePadding="12dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:hint="Search for tasks"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Main_title"
+        app:layout_constraintWidth_percent="0.9" />
+
+    <!-- Add Category Button -->
+
+    <!-- Categories Grid -->
+
+    <TextView
+        android:id="@+id/categories_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Categories"
+        android:textColor="#4A683B"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+    <ImageButton
+        android:id="@+id/add_category_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="12dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Add Category"
+        android:src="@drawable/baseline_add_circle_outline_24"
+        app:layout_constraintBottom_toBottomOf="@id/categories_title"
+        app:layout_constraintStart_toEndOf="@id/categories_title"
+        app:layout_constraintTop_toTopOf="@id/categories_title" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/categoryGrid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:columnCount="3"
+        app:layout_constraintTop_toBottomOf="@id/categories_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        app:rowCount="2"
+        android:padding="8dp"/>
+
+    <!-- Today's Task Section -->
+    <TextView
+        android:id="@+id/todays_tasks_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Today's Task"
+        android:textSize="23sp"
+        android:fontFamily="@font/raleway_semibold"
+        android:textStyle="bold"
+        android:textColor="#4A683B"
+        app:layout_constraintTop_toBottomOf="@id/categoryGrid"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Add Task Button -->
+
+    <!-- View All Button -->
+
+    <ImageButton
+        android:id="@+id/add_task_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/baseline_add_circle_outline_24"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="12dp"
+        android:contentDescription="Add Task"
+        app:layout_constraintTop_toTopOf="@id/todays_tasks_title"
+        app:layout_constraintBottom_toBottomOf="@id/todays_tasks_title"
+        app:layout_constraintStart_toEndOf="@id/todays_tasks_title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/viewAllButton"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="#4A683B"
+        android:elevation="4dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="View All"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/todays_tasks_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/todays_tasks_title"
+        app:layout_constraintTop_toBottomOf="@id/todays_tasks_title"
+        app:layout_constraintTop_toTopOf="@id/todays_tasks_title"
+        app:rippleColor="?attr/colorControlHighlight"
+        app:strokeColor="@android:color/transparent"
+        app:strokeWidth="0dp" />
+    />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/viewAllButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <!-- Task List -->
+        <LinearLayout
+            android:id="@+id/taskListLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="8dp" />
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
