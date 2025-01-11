@@ -9,16 +9,17 @@
     tools:context=".Market_ItemDetails">
 
     <LinearLayout
-        android:layout_width="416dp"
-        android:layout_height="623dp"
+        android:layout_width="462dp"
+        android:layout_height="754dp"
         android:backgroundTint="#f9f1e4"
         android:elevation="4dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.521"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-3dp">
+        tools:layout_editor_absoluteX="-26dp">
 
         <ImageView
             android:id="@+id/image"

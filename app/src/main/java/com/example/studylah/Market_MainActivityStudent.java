@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -23,7 +25,7 @@ public class Market_MainActivityStudent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_main_student);
 
-        student_username=getIntent().getStringExtra("username");
+        student_username=getIntent().getStringExtra("student_username");
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

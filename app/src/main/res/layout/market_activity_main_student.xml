@@ -78,15 +78,12 @@
 
     <FrameLayout
         android:id="@+id/fragmentContainer"
-        android:layout_width="424dp"
-        android:layout_height="485dp"
+        android:layout_width="423dp"
+        android:layout_height="603dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/AddItem"
-        app:layout_constraintVertical_bias="0.095" >
-
-    </FrameLayout>
+        app:layout_constraintVertical_bias="0.0"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
