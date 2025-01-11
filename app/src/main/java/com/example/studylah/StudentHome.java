@@ -120,10 +120,13 @@ public class StudentHome extends AppCompatActivity {
             } else if (id == R.id.side_nav_pomodoro_timer) {
                 intent = new Intent(StudentHome.this, Pomodoro.class);
                 startActivity(intent);
-        } else if (id == R.id.side_nav_todo_list) {
+            } else if (id == R.id.side_nav_todo_list) {
                     intent = new Intent(StudentHome.this, Pomodoro.class);
                     startActivity(intent);
-                }
+                } else if (id == R.id.side_nav_marketplace) {
+                intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
+                startActivity(intent);
+            }
             drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection
             return true;
         });
@@ -138,8 +141,12 @@ public class StudentHome extends AppCompatActivity {
                 intent = new Intent(StudentHome.this, StudentHome.class);
                 startActivity(intent);
             } else if (id == R.id.nav_marketplace) {
-                intent = new Intent(StudentHome.this, StudentHome.class);
+                intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
+                finish();
+                // Set the mentoring tab as selected
+                bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
                 startActivity(intent);

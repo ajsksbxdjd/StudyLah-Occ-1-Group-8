@@ -111,7 +111,9 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
                         break;
                     case 1:
                         // Navigate to manage marketplace
+                        Intent intent = new Intent(context, Market_MainActivityStudent.class);
                         break;
+
                     case 2:
                         //Navigate to events overview
                 }

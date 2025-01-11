@@ -16,12 +16,15 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
     private Button btnReferenceBook;
     private Button btnPastYearBook;
-    private String student_username = "Yu Xuan";
+    private String student_username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_main_student);
+
+        student_username=getIntent().getStringExtra("username");
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

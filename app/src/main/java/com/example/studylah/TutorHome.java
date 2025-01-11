@@ -96,8 +96,8 @@ public class TutorHome extends AppCompatActivity {
                 intent = new Intent(TutorHome.this, Mentoring_Tutors_List.class);
                 startActivity(intent);
                 finish();
-            } else if (id == R.id.side_nav_flashcards) {
-                intent = new Intent(TutorHome.this, Mentoring_Tutors_List.class);
+            } else if (id == R.id.side_nav_marketplace) {
+                intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
                 startActivity(intent);
                 finish();
             }
@@ -116,9 +116,10 @@ public class TutorHome extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } else if (id == R.id.nav_marketplace) {
-                intent = new Intent(TutorHome.this, TutorHome.class);
+                intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
                 startActivity(intent);
                 finish();
+                bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
                 startActivity(intent);
