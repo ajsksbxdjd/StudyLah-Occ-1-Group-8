@@ -7,13 +7,47 @@
     android:layout_height="match_parent"
     android:background="#F9F1E4">
 
+    <!-- Toolbar with Back Button -->
+
     <!-- Focus/Break Toggle -->
     <!-- Task Title -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/primary_color"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Back Button"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Pomodoro Timer"
+            android:textColor="@color/primary_variant_color"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="11dp" />
+    </androidx.appcompat.widget.Toolbar>
+
     <Button
         android:id="@+id/btn_focus"
         android:layout_width="140dp"
         android:layout_height="70dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="#698c56"
         android:fontFamily="@font/raleway_semibold"
@@ -28,7 +62,7 @@
         android:layout_width="140dp"
         android:layout_height="70dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="#E1E1E1"
         android:fontFamily="@font/raleway_semibold"
         android:text="Break"

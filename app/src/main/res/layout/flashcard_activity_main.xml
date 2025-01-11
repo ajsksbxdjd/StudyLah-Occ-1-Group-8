@@ -8,45 +8,51 @@
     android:background="#F9F2E8"
     android:padding="16dp">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/primary_color"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Back Button"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/raleway_bold"
+            android:text="Flashcards"
+            android:textColor="@color/primary_variant_color"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="152dp"
+            tools:layout_editor_absoluteY="11dp" />
+    </androidx.appcompat.widget.Toolbar>
+
 
     <!-- Search Flashcards Card -->
-
-    <ImageButton
-        android:id="@+id/mainmenu"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="28dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/baseline_menu_24"
-        android:background="@android:color/transparent"
-        app:tint="#4A683B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_bold"
-        android:text="Flashcards"
-        android:textColor="#3D3D3D"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/mainmenu"
-        app:layout_constraintStart_toEndOf="@id/mainmenu"
-        app:layout_constraintTop_toTopOf="@id/mainmenu" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/searchCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="46dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintTop_toBottomOf="@id/titleText"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -100,7 +106,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/raleway_bold"
         android:text="Flashcard Decks"
-        android:textColor="#4A683B"
+        android:textColor="@color/primary_variant_color"
         android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,15 +138,15 @@
         android:id="@+id/addDeckButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
         android:background="@android:color/transparent"
         android:contentDescription="Add a new deck"
-        app:layout_constraintTop_toTopOf="@id/flashcardsDeckTitle"
+        android:src="@drawable/baseline_add_circle_outline_24"
         app:layout_constraintBottom_toBottomOf="@id/flashcardsDeckTitle"
         app:layout_constraintStart_toEndOf="@id/flashcardsDeckTitle"
-        android:src="@drawable/baseline_add_circle_outline_24"
-        app:tint="#4A683B" />
+        app:layout_constraintTop_toTopOf="@id/flashcardsDeckTitle"
+        app:tint="@color/primary_variant_color" />
 
 
 

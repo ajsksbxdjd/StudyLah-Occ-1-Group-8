@@ -187,7 +187,7 @@ public class LoginTutor extends AppCompatActivity {
                             int accounting=user.getInt("accounting");
 
                             // Pass the user data to HomepageStudent via intent
-                            Intent intent = new Intent(LoginTutor.this, homepageTutor.class);
+                            Intent intent = new Intent(LoginTutor.this, TutorHome.class);
                             intent.putExtra("username", username);
                             intent.putExtra("display_name", displayName);
                             intent.putExtra("email", email);

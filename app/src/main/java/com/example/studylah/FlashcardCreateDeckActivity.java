@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,6 +42,14 @@ public class FlashcardCreateDeckActivity extends AppCompatActivity {
         cancelDeckButton.setOnClickListener(view -> {
             setResult(RESULT_CANCELED); // Send a canceled result back
             finish(); // Close this activity
+        });
+
+        // Set up the back button
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(FlashcardCreateDeckActivity.this, FlashcardMainActivity.class);
+            startActivity(intent);
+            finish(); // Optional: Close current activity to prevent going back to it
         });
     }
 }

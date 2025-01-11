@@ -1,5 +1,6 @@
 package com.example.studylah;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -137,6 +139,14 @@ public class Pomodoro extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+
+        // Set up the back button
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Pomodoro.this, StudentHome.class);
+            startActivity(intent);
+            finish(); // Optional: Close current activity to prevent going back to it
         });
     }
 

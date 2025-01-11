@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.res.ResourcesCompat;
@@ -86,6 +87,14 @@ public class FlashcardMainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable editable) {}
+        });
+
+        // Set up the back button
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+           Intent intent = new Intent(FlashcardMainActivity.this, StudentHome.class);
+            startActivity(intent);
+            finish(); // Optional: Close current activity to prevent going back to it
         });
     }
 

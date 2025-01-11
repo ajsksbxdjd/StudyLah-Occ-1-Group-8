@@ -39,8 +39,70 @@
         <activity
             android:name=".Pomodoro"
             android:exported="false"/>
+
+        <activity android:name=".FlashcardCreateDeckActivity" />
+        <activity android:name=".FlashcardCreateFlashcardActivity" />
+        <activity android:name=".FlashcardStudyActivity" />
+        <activity android:name=".FlashcardDeckDetailsActivity" />
+        <activity
+            android:name=".FlashcardMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".editSubjectTutor"
+            android:exported="false" />
+        <activity
+            android:name=".editSubjectStudent"
+            android:exported="false" />
+        <activity
+            android:name=".subject_preference_tutor"
+            android:exported="false" />
+        <activity
+            android:name=".subject_preference_student"
+            android:exported="false" />
+        <activity
+            android:name=".resetPasswordTutor"
+            android:exported="false" />
+        <activity
+            android:name=".forgotPasswordTutor"
+            android:exported="false" />
+        <activity
+            android:name=".resetPasswordStudent"
+            android:exported="false" />
+        <activity
+            android:name=".forgotPasswordStudent"
+            android:exported="false" />
+        <activity
+            android:name=".editProfileTutor"
+            android:exported="false" />
+        <activity
+            android:name=".editProfileStudent"
+            android:exported="false" />
         <activity
             android:name=".StudentHome"
+            android:exported="false" />
+        <activity
+            android:name=".homepageTutor"
+            android:exported="false" />
+        <activity
+            android:name=".homepageStudent"
+            android:exported="false" />
+        <activity
+            android:name=".LoginTutor"
+            android:exported="false" />
+        <activity
+            android:name=".LoginStudent"
+            android:exported="false" />
+        <activity
+            android:name=".verificationSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".OTPVerification"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,10 +110,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -2,40 +2,41 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F9F2E8">
 
     <!-- Back Button -->
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="8dp"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        app:tint="#6B6B57"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="38dp"/>
 
     <!-- Page Title -->
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="42dp"
+        android:contentDescription="Back Button"
+        android:src="@drawable/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Card View for Content Box -->
+
     <TextView
         android:id="@+id/createDeckTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="37dp"
         android:fontFamily="@font/raleway_bold"
         android:text="Create Decks"
-        android:textColor="#3D3D3D"
+        android:textColor="@color/primary_variant_color"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/backButton"
-        app:layout_constraintStart_toEndOf="@id/backButton"
-        app:layout_constraintTop_toTopOf="@id/backButton" />
+        app:layout_constraintStart_toEndOf="@+id/back_button"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Card View for Content Box -->
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,22 +50,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="24dp"
-            android:orientation="vertical">
+            android:layout_height="260dp"
+            android:orientation="vertical"
+            android:padding="24dp">
 
             <!-- Sub Title -->
             <TextView
                 android:id="@+id/deckTitle"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="Create a new deck!"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:fontFamily="@font/raleway_bold"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Create a new deck!"
+                android:textColor="#000000"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <!-- Deck Name Label -->
             <TextView
@@ -73,24 +74,24 @@
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Name your deck:"
-                android:textStyle="bold"
-                android:textColor="#4A683B"
-                android:textSize="18sp" />
+                android:textColor="@color/primary_variant_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <!-- Deck Name Input Field -->
             <EditText
                 android:id="@+id/deckNameField"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Deck name"
-                android:textSize="16sp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_rounded_border"
-                android:padding="12dp"
-                android:textColorHint="#A5A5A5"
                 android:fontFamily="@font/raleway_semibold"
+                android:hint="Deck name"
                 android:imeOptions="actionDone"
+                android:padding="12dp"
                 android:singleLine="true"
-                android:layout_marginBottom="20dp"/>
+                android:textColorHint="#A5A5A5"
+                android:textSize="16sp" />
 
             <!-- Button Layout -->
             <LinearLayout
@@ -102,10 +103,10 @@
                 <!-- Create Button -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/addDeckButton"
-                    android:layout_width="100dp"
-                    android:layout_height="46dp"
+                    android:layout_width="102dp"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="12dp"
-                    android:backgroundTint="#4A683B"
+                    android:backgroundTint="@color/primary_variant_color"
                     android:elevation="4dp"
                     android:fontFamily="@font/raleway_bold"
                     android:text="Add"
@@ -124,11 +125,11 @@
                     android:elevation="4dp"
                     android:fontFamily="@font/raleway_bold"
                     android:text="Cancel"
-                    android:textColor="#4A683B"
+                    android:textColor="@color/primary_variant_color"
                     android:textSize="15sp"
                     app:cornerRadius="10dp"
                     app:rippleColor="?attr/colorControlHighlight"
-                    app:strokeColor="#4A683B"
+                    app:strokeColor="@color/primary_variant_color"
                     app:strokeWidth="2dp" />
 
             </LinearLayout>
