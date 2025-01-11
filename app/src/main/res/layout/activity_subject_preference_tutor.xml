@@ -2,18 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F9F1E4"
-    tools:context=".SubjectPreferenceTutor">
+    tools:context=".subject_preference_tutor">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonHistory2"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="440dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -21,15 +20,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#0D0D0D"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/buttonPhysics2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChem" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonPhysics2"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="440dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -38,14 +39,14 @@
         android:textColor="#0D0D0D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBio3" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonBio3"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="360dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -54,14 +55,13 @@
         android:textColor="#0D0D0D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMaths" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonEco"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="520dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -69,15 +69,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#0D0D0D"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/buttonAccounting"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHistory2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonAccounting"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="520dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -86,14 +88,13 @@
         android:textColor="#0D0D0D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonPhysics2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonIslam2"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -101,15 +102,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#141414"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/buttonMoral"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEnglish" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonMalay2"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -118,14 +121,13 @@
         android:textColor="#0D0D0D"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/TVSubjectPreference" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonChem"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="360dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:gravity="center"
         android:padding="12dp"
@@ -133,15 +135,17 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#0D0D0D"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/buttonBio3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddmaths" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonMoral"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="200dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:fontFamily="@font/pt_sans"
         android:gravity="center"
@@ -151,14 +155,13 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMalay2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonEnglish"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/subject_bg"
         android:fontFamily="@font/pt_sans"
         android:gravity="center"
@@ -168,29 +171,31 @@
         android:textColor="#040404"
         android:textSize="16sp"
         android:typeface="normal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toEndOf="@+id/buttonMalay2"
+        app:layout_constraintTop_toBottomOf="@+id/TVSubjectPreference" />
 
     <TextView
         android:id="@+id/TVSubjectPreference"
-        android:layout_width="335dp"
-        android:layout_height="66dp"
+        android:layout_width="408dp"
+        android:layout_height="80dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/pt_sans"
-        android:text="Which subject(s) would you like to teach?"
+        android:text="Which subject(s) would you like to study?"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonMaths"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="280dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:fontFamily="@font/pt_sans"
         android:text="Mathematics"
@@ -199,37 +204,39 @@
         android:textColorLink="#0B0B0B"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMoral" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonAddmaths"
-        android:layout_width="156dp"
-        android:layout_height="69dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="280dp"
+        android:layout_width="196dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/subject_bg"
         android:fontFamily="@font/pt_sans"
         android:text="Additional Mathematics"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#050505"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.401"
+        app:layout_constraintStart_toEndOf="@+id/buttonMaths"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIslam2" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonNext"
-        android:layout_width="138dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="144dp"
+        android:id="@+id/buttonSave"
+        android:layout_width="182dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
         android:background="@drawable/button_bg"
         android:fontFamily="@font/pt_sans"
-        android:text="Next"
+        android:text="Save"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/secondary_color"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonEco" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
