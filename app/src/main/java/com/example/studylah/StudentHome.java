@@ -2,14 +2,10 @@ package com.example.studylah;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +85,7 @@ public class StudentHome extends AppCompatActivity {
             popupMenu.show();
         });
 
-        // Side Navigation Item Click Handling
+        // Handle Side Navigation Item Clicks
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
             Intent intent;
@@ -108,6 +101,9 @@ public class StudentHome extends AppCompatActivity {
                 startActivity(intent);
             } else if (id == R.id.side_nav_flashcards) {
                 intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_pomodoro_timer) {
+                intent = new Intent(StudentHome.this, Pomodoro.class);
                 startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection

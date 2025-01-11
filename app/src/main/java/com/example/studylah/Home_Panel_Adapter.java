@@ -48,7 +48,7 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
                     intent = new Intent(context, Mentoring_Tutors_List.class); // Replace with the actual activity
                     break;
                 case 2: // Pomodoro Timer
-                    intent = new Intent(context, Mentoring_Tutors_List.class); // Replace with the actual activity
+                    intent = new Intent(context, Pomodoro.class); // Replace with the actual activity
                     break;
                 case 3: // Upcoming Events
                     intent = new Intent(context, Mentoring_Tutors_List.class); // Replace with the actual activity

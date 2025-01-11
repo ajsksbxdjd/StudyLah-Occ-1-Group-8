@@ -17,7 +17,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-public class pomodoro extends AppCompatActivity {
+public class Pomodoro extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView timerText, sessionCountText, endTimeText, taskTitle;
