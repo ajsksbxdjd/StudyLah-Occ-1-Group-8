@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F2E8"
+    android:padding="16dp">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:tint="#6B6B57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Page Title -->
+    <TextView
+        android:id="@+id/createFlashcardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Flashcards"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#3D3D3D"
+        android:fontFamily="@font/raleway_bold"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"/>
+
+    <!-- Current Deck Name -->
+    <TextView
+        android:id="@+id/currentDeckName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Current deck: Bahasa Melayu"
+        android:textColor="#4A683B"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createFlashcardTitle" />
+
+    <!-- Card View for Input Fields -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/currentDeckName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:orientation="vertical">
+
+            <!-- Front Label -->
+            <TextView
+                android:id="@+id/frontLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Front"
+                android:textSize="16sp"
+                android:textColor="#4A683B"
+                android:fontFamily="@font/raleway_bold"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Front Input -->
+            <EditText
+                android:id="@+id/frontInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edittext_rounded_border"
+                android:fontFamily="@font/raleway_semibold"
+                android:hint=""
+                android:imeOptions="actionDone"
+                android:padding="12dp"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <!-- Back Label -->
+            <TextView
+                android:id="@+id/backLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textSize="16sp"
+                android:textColor="#4A683B"
+                android:fontFamily="@font/raleway_bold"
+                android:layout_marginBottom="4dp"/>
+
+            <!-- Back Input -->
+            <EditText
+                android:id="@+id/backInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/edittext_rounded_border"
+                android:fontFamily="@font/raleway_semibold"
+                android:hint=""
+                android:imeOptions="actionDone"
+                android:padding="12dp"
+                android:singleLine="true"
+                android:textSize="16sp" />
+
+            <!-- Buttons Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <!-- Add Button -->
+                <!-- Create Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addCardButton"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="12dp"
+                    android:backgroundTint="#4A683B"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Add"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="?attr/colorControlHighlight"
+                    app:strokeColor="@android:color/transparent"
+                    app:strokeWidth="0dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancelCardButton"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:backgroundTint="@android:color/white"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Cancel"
+                    android:textColor="#4A683B"
+                    android:textSize="15sp"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="?attr/colorControlHighlight"
+                    app:strokeColor="#4A683B"
+                    app:strokeWidth="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

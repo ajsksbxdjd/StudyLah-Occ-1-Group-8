@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F2E8">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:tint="#6B6B57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="38dp"/>
+
+    <!-- Page Title -->
+    <TextView
+        android:id="@+id/createDeckTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Create Decks"
+        android:textColor="#3D3D3D"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/backButton"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+        app:layout_constraintTop_toTopOf="@id/backButton" />
+
+    <!-- Card View for Content Box -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        android:background="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/createDeckTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:orientation="vertical">
+
+            <!-- Sub Title -->
+            <TextView
+                android:id="@+id/deckTitle"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Create a new deck!"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:fontFamily="@font/raleway_bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Deck Name Label -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Name your deck:"
+                android:textStyle="bold"
+                android:textColor="#4A683B"
+                android:textSize="18sp" />
+
+            <!-- Deck Name Input Field -->
+            <EditText
+                android:id="@+id/deckNameField"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Deck name"
+                android:textSize="16sp"
+                android:background="@drawable/edittext_rounded_border"
+                android:padding="12dp"
+                android:textColorHint="#A5A5A5"
+                android:fontFamily="@font/raleway_semibold"
+                android:imeOptions="actionDone"
+                android:singleLine="true"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Button Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Create Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addDeckButton"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:layout_marginEnd="12dp"
+                    android:backgroundTint="#4A683B"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Add"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="?attr/colorControlHighlight"
+                    app:strokeColor="@android:color/transparent"
+                    app:strokeWidth="0dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancelDeckButton"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:backgroundTint="@android:color/white"
+                    android:elevation="4dp"
+                    android:fontFamily="@font/raleway_bold"
+                    android:text="Cancel"
+                    android:textColor="#4A683B"
+                    android:textSize="15sp"
+                    app:cornerRadius="10dp"
+                    app:rippleColor="?attr/colorControlHighlight"
+                    app:strokeColor="#4A683B"
+                    app:strokeWidth="2dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

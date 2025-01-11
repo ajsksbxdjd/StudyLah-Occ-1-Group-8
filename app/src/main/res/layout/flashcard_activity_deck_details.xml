@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9F2E8"
+    android:padding="16dp">
+
+    <!-- Back Button -->
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="8dp"
+        android:src="@drawable/baseline_arrow_back_ios_24"
+        app:tint="#6B6B57"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Deck Title -->
+    <TextView
+        android:id="@+id/currentDeckTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Deck:"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="#3D3D3D"
+        android:fontFamily="@font/raleway_bold"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+        app:layout_constraintTop_toTopOf="@id/backButton"
+        android:layout_marginTop="3dp"
+        android:layout_marginStart="4dp" />
+
+    <!-- Deck Name -->
+    <TextView
+        android:id="@+id/deckName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text=""
+        android:textColor="#3D3D3D"
+        android:textSize="21sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/currentDeckTitle"
+        app:layout_constraintStart_toEndOf="@id/currentDeckTitle" />
+
+    <!-- Study Button -->
+    <!-- Create Button -->
+
+    <!-- Add Card Button -->
+    <Button
+        android:id="@+id/studyButton"
+        android:layout_width="100dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="19dp"
+        android:backgroundTint="#4A683B"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="Study"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:paddingTop="0dp"
+        android:scaleType="fitCenter"
+        app:cornerRadius="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deckName" />
+
+    <ImageButton
+        android:id="@+id/addCardButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_add_circle_outline_24"
+        app:tint="#4A683B"
+        app:layout_constraintTop_toBottomOf="@id/deckName"
+        app:layout_constraintStart_toEndOf="@id/studyButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="22dp" />
+
+    <!-- Search Bar Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/search_badge"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addCardButton">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <!-- Search Label -->
+            <TextView
+                android:id="@+id/searchLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Flashcards"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#4A683B"
+                android:fontFamily="@font/raleway_bold" />
+
+            <!-- Search Input -->
+            <EditText
+                android:id="@+id/searchCardsInput"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_rounded_border"
+                android:drawableStart="@drawable/baseline_search_24"
+                android:drawablePadding="12dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:hint="Search here"
+                android:imeOptions="actionDone"
+                android:padding="12dp"
+                android:singleLine="true"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ScrollView
+        android:id="@+id/cardContainerScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="List of flashcards in the current deck"
+        app:layout_constraintTop_toBottomOf="@id/search_badge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/cardContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
