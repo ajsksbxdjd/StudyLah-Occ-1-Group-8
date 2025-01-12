@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7EFE2"
+    android:backgroundTint="#F7EFE2"
+    tools:context=".EventCreated">
+
+    <ImageView
+        android:id="@+id/IVSuccess"
+        android:layout_width="138dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/successful_logo_foreground" />
+
+    <TextView
+        android:id="@+id/TVTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Feedback Submitted Successfully"
+        android:textAlignment="viewStart"
+        android:textColor="#688B55"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/IVSuccess"
+        app:layout_constraintStart_toStartOf="@+id/IVSuccess"
+        app:layout_constraintTop_toBottomOf="@+id/IVSuccess" />
+
+    <TextView
+        android:id="@+id/TVDesc"
+        android:layout_width="337dp"
+        android:layout_height="53dp"
+        android:fontFamily="@font/raleway_medium"
+        android:text="We greatly appreciate the time you took to share your thoughts with us."
+        android:textAlignment="center"
+        android:textColor="#688B55"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/TVTitle"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/TVTitle"
+        app:layout_constraintTop_toBottomOf="@+id/TVTitle" />
+
+    <Button
+        android:id="@+id/BtnBackToEvent"
+        android:layout_width="210dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#688B55"
+        android:elevation="15dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="BACK TO EVENT"
+        android:textSize="14sp"
+        android:translationX="4dp"
+        android:translationY="2dp"
+        android:translationZ="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/TVDesc"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintStart_toStartOf="@+id/TVDesc"
+        app:layout_constraintTop_toBottomOf="@+id/TVDesc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
