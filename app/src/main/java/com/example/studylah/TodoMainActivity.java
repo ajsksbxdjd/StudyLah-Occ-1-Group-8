@@ -442,8 +442,6 @@ public class TodoMainActivity extends AppCompatActivity {
             String date = data.getStringExtra("date");
             String time = data.getStringExtra("time");
             String priority = data.getStringExtra("priority");
-            String reminderDate = data.getStringExtra("reminderDate");
-            String reminderTime = data.getStringExtra("reminderTime");
 
             if (taskName != null && !taskName.isEmpty()) {
                 // ✅ Debugging: Print received task
