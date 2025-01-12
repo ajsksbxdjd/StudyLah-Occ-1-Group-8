@@ -14,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -95,6 +96,11 @@ public class Register extends AppCompatActivity {
 
         // Handle registration button click
         registerButton.setOnClickListener(v -> handleRegister());
+
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
 
         // Handle email validation
         email.addTextChangedListener(new TextWatcher() {

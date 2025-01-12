@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -55,6 +56,10 @@ public class resetPasswordStudent extends AppCompatActivity {
         }
 
         updateButton.setOnClickListener(v -> validateAndUpdatePassword());
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
     }
     private void validateAndUpdatePassword() {
         String newPassword = password.getText().toString().trim();

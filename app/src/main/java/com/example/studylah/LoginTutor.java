@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,10 @@ public class LoginTutor extends AppCompatActivity {
                 Intent intent = new Intent(LoginTutor.this, forgotPasswordTutor.class);
                 startActivity(intent);
             }
+        });
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
         });
     }
     private void setUnderlineText(TextView textView, String text) {

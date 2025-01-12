@@ -10,6 +10,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -69,6 +70,10 @@ public class forgotPasswordStudent extends AppCompatActivity {
         resetButton = findViewById(R.id.updateButton);
 
         resetButton.setOnClickListener(v -> sendVerifyEmail());
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
     }
     private boolean isValidEmail(String email) {
         return !email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches();
