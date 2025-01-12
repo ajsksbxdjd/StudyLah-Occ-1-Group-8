@@ -78,7 +78,6 @@ public class editProfileStudent extends AppCompatActivity {
         String initialDisplayName = intent.getStringExtra("display_name");
         String initialEmail = intent.getStringExtra("email");
 
-
         // Set TextViews
         Username.setText(initialUsername);
         DisplayName.setText(initialDisplayName);
@@ -209,7 +208,6 @@ public class editProfileStudent extends AppCompatActivity {
             Toast.makeText(this, "Error encoding username.", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void showEditDialog(String fieldName, String currentValue, OnFieldUpdatedListener listener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

@@ -52,7 +52,6 @@ public class TutorHome extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-
         RecyclerView recyclerView = findViewById(R.id.tutors_list);
 
         // Set LayoutManager
@@ -98,6 +97,7 @@ public class TutorHome extends AppCompatActivity {
                 finish();
             } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
             }
@@ -117,6 +117,7 @@ public class TutorHome extends AppCompatActivity {
                 finish();
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
                 bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);

@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,14 +18,14 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
     private Button btnReferenceBook;
     private Button btnPastYearBook;
-    private String student_username;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_main_student);
 
-        student_username=getIntent().getStringExtra("username");
+        username=getIntent().getStringExtra("username");
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -55,7 +57,7 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
         btnAddItem.setOnClickListener(v -> {
             Intent intent = new Intent(Market_MainActivityStudent.this, Market_UploadItemStudent.class);
-            intent.putExtra("student_username", student_username);
+            intent.putExtra("username", username);
             startActivity(intent);
         });
 

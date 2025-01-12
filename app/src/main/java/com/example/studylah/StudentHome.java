@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,7 +43,7 @@ public class StudentHome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
-
+        
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -125,6 +126,7 @@ public class StudentHome extends AppCompatActivity {
                     startActivity(intent);
                 } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection
