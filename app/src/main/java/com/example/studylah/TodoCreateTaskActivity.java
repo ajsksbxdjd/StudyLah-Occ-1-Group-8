@@ -21,13 +21,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Activity to create a new task.
+ * Users can input task details like name, category, due date, time, and priority.
+ */
 public class TodoCreateTaskActivity extends AppCompatActivity {
 
     private EditText taskNameField;
     private String selectedDate = "";
     private String selectedTime = "";
     private String selectedPriority = "";
-    private Calendar reminderCalendar = Calendar.getInstance(); // Store the reminder date & time
+    private Calendar reminderCalendar = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +102,6 @@ public class TodoCreateTaskActivity extends AppCompatActivity {
             resultIntent.putExtra("time", selectedTime);
             resultIntent.putExtra("priority", selectedPriority);
 
-            if (!selectedDate.isEmpty() && !selectedTime.isEmpty()) {
-                resultIntent.putExtra("reminderDate", selectedDate);
-                resultIntent.putExtra("reminderTime", selectedTime);
-            } else {
-                resultIntent.putExtra("reminderDate", "No Reminder Set");
-                resultIntent.putExtra("reminderTime", "");
-            }
-
             setResult(RESULT_OK, resultIntent);
             finish();
         });
@@ -115,9 +111,6 @@ public class TodoCreateTaskActivity extends AppCompatActivity {
             setResult(RESULT_CANCELED);
             finish();
         });
-
-        // Create Notification Channel (Required for Android 8.0+)
-        createNotificationChannel();
     }
 
     // Show Date Picker
@@ -172,19 +165,5 @@ public class TodoCreateTaskActivity extends AppCompatActivity {
         unselected1.setChecked(false);
         unselected2.setChecked(false);
         selectedPriority = priority;
-    }
-
-    // Create Notification Channel for Android 8.0+
-    private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "Task Reminder Channel";
-            String description = "Channel for task reminders";
-            int importance = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("taskReminderChannel", name, importance);
-            channel.setDescription(description);
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
     }
 }

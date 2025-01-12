@@ -11,7 +11,7 @@ public class TodoTask implements Parcelable {
     private String priority;
     private boolean isCompleted;
 
-    public TodoTask(String name, String category, String date, String time, String priority, String reminderDate, String reminderTime) {
+    public TodoTask(String name, String category, String date, String time, String priority) {
         this.name = name;
         this.category = category;
         this.date = date;
