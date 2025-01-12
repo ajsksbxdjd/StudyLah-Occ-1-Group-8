@@ -1,24 +1,10 @@
 package com.example.studylah;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -27,7 +13,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,9 +28,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.bumptech.glide.Glide;
@@ -90,8 +72,7 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
     private ImageView boxLocation;
 
     private static final int PICK_IMAGE_REQUEST = 1;
-    byte[] itemPicture;
-    ImageButton imageButton;
+    private Uri selectedImageUri;  // To store the selected image URI
 
     private String username;
     private String tutor_name;
@@ -106,19 +87,8 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
         username = getIntent().getStringExtra("username");
 
         // Initialize ImageButton
-        imageButton = findViewById(R.id.imageButton1);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Check if permissions are granted
-                if (ContextCompat.checkSelfPermission(Market_UploadItemTutor.this, android.Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(Market_UploadItemTutor.this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(Market_UploadItemTutor.this, new String[]{android.Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA}, 1);
-                } else {
-                    showImageSourceDialog();
-                }
-            }
-        });
+        ImageButton imageButton = findViewById(R.id.imageButton1);
+        imageButton.setOnClickListener(view -> openImagePicker());
 
         // Remove focus when clicking outside the AutoCompleteTextView
         findViewById(R.id.main).setOnTouchListener((v, event) -> {
@@ -244,42 +214,6 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
         new ItemDetailsTask().execute();
     }
 
-    private void openFileExplorer() {
-        Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        intent.setType("image/*"); // Only allow image files
-        startActivityForResult(intent, 1);
-    }
-
-    private void showImageSourceDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select Image Source");
-        builder.setItems(new CharSequence[]{"Take Photo", "Choose from Gallery"}, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0: // Take Photo
-                        openCamera();
-                        break;
-                    case 1: // Choose from Gallery
-                        openFileExplorer();
-                        break;
-                }
-            }
-        });
-        builder.show();
-    }
-
-    private void openCamera() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, 2);
-    }
-
-    // Method to encode the image as a base64 string
-    private String encodeImageToBase64(byte[] imageBytes) {
-        return Base64.encodeToString(imageBytes, Base64.NO_WRAP);
-    }
-
-
     private class ItemDetailsTask extends AsyncTask<Void, Void, String> {
         protected String doInBackground(Void... params) {
             String result = "";
@@ -326,113 +260,27 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
         }
     }
 
+    // Open image picker
+    private void openImagePicker() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");  // Only allow image selection
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
     // Handle the result from image picker
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            Bitmap bitmap = null;
-            if (requestCode == 1) { // From gallery
-                Uri selectedImageUri = data.getData();
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImageUri);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
-                }
-            } else if (requestCode == 2) { // From camera
-                bitmap = (Bitmap) data.getExtras().get("data");
-            }
+            Uri imageUri = data.getData();
+            selectedImageUri = data.getData();
 
-            if (bitmap != null) {
-                // Convert the bitmap to byte array
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                itemPicture = byteArrayOutputStream.toByteArray();
-
-                // Create a custom drawable that will handle both the image and the rounded corners
-                class RoundedImageDrawable extends Drawable {
-                    private final Paint paint;
-                    private final Bitmap bitmap;
-                    private final RectF rectF;
-                    private final float cornerRadius;
-
-                    RoundedImageDrawable(Bitmap bitmap, float cornerRadius) {
-                        this.bitmap = bitmap;
-                        this.cornerRadius = cornerRadius;
-                        this.paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                        this.rectF = new RectF();
-                    }
-
-                    @Override
-                    public void draw(@NonNull Canvas canvas) {
-                        // Update rect to match current bounds
-                        rectF.set(getBounds());
-
-                        // Draw rounded rectangle path
-                        canvas.drawRoundRect(rectF, cornerRadius, cornerRadius, paint);
-
-                        // Set up the bitmap matrix for drawing
-                        Matrix matrix = new Matrix();
-                        RectF src = new RectF(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                        matrix.setRectToRect(src, rectF, Matrix.ScaleToFit.CENTER);
-
-                        // Save canvas state
-                        canvas.save();
-
-                        // Apply clipping for rounded corners
-                        Path clipPath = new Path();
-                        clipPath.addRoundRect(rectF, cornerRadius, cornerRadius, Path.Direction.CW);
-                        canvas.clipPath(clipPath);
-
-                        // Draw the bitmap
-                        canvas.drawBitmap(bitmap, matrix, paint);
-
-                        // Restore canvas state
-                        canvas.restore();
-                    }
-
-                    @Override
-                    public void setAlpha(int alpha) {
-                        paint.setAlpha(alpha);
-                    }
-
-                    @Override
-                    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-                        paint.setColorFilter(colorFilter);
-                    }
-
-                    @Override
-                    public int getOpacity() {
-                        return PixelFormat.TRANSLUCENT;
-                    }
-                }
-
-                // Create our custom drawable with the original bitmap
-                RoundedImageDrawable imageDrawable = new RoundedImageDrawable(bitmap,
-                        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12,
-                                getResources().getDisplayMetrics()));
-
-                // Create background drawable for the shadow effect
-                GradientDrawable shadowDrawable = new GradientDrawable();
-                shadowDrawable.setColor(Color.WHITE);
-                shadowDrawable.setCornerRadius(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 12,
-                        getResources().getDisplayMetrics()));
-
-                // Combine the drawables
-                LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{
-                        shadowDrawable,  // Bottom layer (shadow)
-                        imageDrawable   // Top layer (image)
-                });
-
-                // Apply padding to maintain the shadow effect
-                int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4,
-                        getResources().getDisplayMetrics());
-                layerDrawable.setLayerInset(1, padding, padding, padding, padding);
-
-                // Set the background
-                imageButton.setBackground(layerDrawable);
-            }
+            // Load the image into ImageButton using Glide
+            ImageButton imageButton = findViewById(R.id.imageButton1);
+            Glide.with(this)
+                    .load(imageUri)
+                    .centerCrop()  // or .fitCenter() depending on the effect you want
+                    .into(imageButton);
         }
     }
 
@@ -475,13 +323,36 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
             return;
         }
 
-        String itemPictureBase64 = encodeImageToBase64(itemPicture);
-
-        JSONObject jsonBody = new JSONObject();
         try {
+            JSONObject jsonBody = new JSONObject();
             jsonBody.put("item_name", name);
             jsonBody.put("item_category", category);
-            jsonBody.put("item_picture", itemPictureBase64);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            if (selectedImageUri != null) {
+                try {
+                    // load the image from the selected URI into a Bitmap object
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
+                    // compress the bitmap into a byte array
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+                    byte[] imageBytes = byteArrayOutputStream.toByteArray();
+                    // encode the byte array to a Base64 string
+                    String encodedImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+                    Log.d("Encoded Image", encodedImage);
+                    if (encodedImage.isEmpty()) {
+                        jsonBody.put("item_picture", JSONObject.NULL);
+                        Toast.makeText(this, "Encoded image is empty", Toast.LENGTH_SHORT).show();
+                    } else {
+                        jsonBody.put("item_picture", encodedImage);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.d("Image Error", e.getMessage());
+                }
+            } else {
+                jsonBody.put("item_picture", JSONObject.NULL);
+            }
+
             jsonBody.put("item_price", price);
             jsonBody.put("item_description", description);
 
