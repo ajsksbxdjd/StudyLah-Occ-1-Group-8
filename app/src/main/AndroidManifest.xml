@@ -30,7 +30,7 @@
         <receiver android:name=".EventNotificationReceiver" />
 
         <activity
-            android:name=".EventActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".EventDetails"
@@ -157,7 +157,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".EventActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

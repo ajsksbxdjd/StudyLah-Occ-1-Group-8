@@ -47,7 +47,7 @@ public class EventNotificationReceiver extends BroadcastReceiver {
     private void sendNotification(Context context, String eventName, String eventTime) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "event_channel")
                 .setSmallIcon(R.drawable.studylah_logo)// Replace with your icon
-                .setContentTitle("Let's Join StudyLah Event!")
+                .setContentTitle("Let's Join "+ eventName +" !")
                 .setContentText(eventName + " is happening tomorrow at " + eventTime + " tomorrow. Check it out!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);  // Dismiss the notification when tapped

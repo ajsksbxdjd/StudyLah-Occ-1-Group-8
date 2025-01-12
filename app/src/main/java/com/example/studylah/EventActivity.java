@@ -45,14 +45,14 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-            Log.e("AlarmManager in EventActivity", "AlarmManager: " + alarmManager);
-            if (!alarmManager.canScheduleExactAlarms()) {
-                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
-                startActivity(intent);
-            }
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+//            AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//            Log.e("AlarmManager in EventActivity", "AlarmManager: " + alarmManager);
+//            if (!alarmManager.canScheduleExactAlarms()) {
+//                Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+//                startActivity(intent);
+//            }
+//        }
 
         // Check Alarm permission for Android 12 and above
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
