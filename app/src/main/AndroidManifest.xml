@@ -56,7 +56,7 @@
             android:name=".Mentoring_Tutors_List"
             android:exported="false" />
         <activity
-            android:name=".TutorHome"
+            android:name=".StudentHome"
             android:exported="false" />
         <activity
             android:name=".SubjectPreferenceStudent"
@@ -116,7 +116,7 @@
             android:name=".editProfileStudent"
             android:exported="false" />
         <activity
-            android:name=".StudentHome"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".homepageTutor"
@@ -142,7 +142,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".TutorHome"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
