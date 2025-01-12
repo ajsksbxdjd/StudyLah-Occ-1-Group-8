@@ -80,7 +80,7 @@ public class Register extends AppCompatActivity {
         verifyEmail = findViewById(R.id.verifyEmail);
         universityText = findViewById(R.id.textUniversity);
 
-        restoreData(); // Restore previous data if available
+        restoreData();
 
         // Handle role selection visibility
         roleGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -318,7 +318,7 @@ public class Register extends AppCompatActivity {
         // Proceed with sending the email
         Random random = new Random();
         int code = random.nextInt(8999) + 1000; // Generate a random 4-digit code
-        String url = "http://10.0.2.2:80/sendEmail.php"; // Your PHP script URL
+        String url = "http://10.0.2.2:80/sendEmail.php";
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
