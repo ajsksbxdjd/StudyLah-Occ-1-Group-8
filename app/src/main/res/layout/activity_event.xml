@@ -1,10 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:padding="16dp">-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/noEventText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="NO EVENT"-->
+<!--        android:gravity="center"-->
+<!--        android:visibility="gone"-->
+<!--        android:textSize="18sp"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/eventContainer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical" />-->
+<!--    </ScrollView>-->
+
+<!--</LinearLayout>-->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventActivity">
+    android:background="#F7EFE2">
+
+    <TextView
+        android:id="@+id/noEventText"
+        android:layout_width="409dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/raleway_bold"
+        android:gravity="center"
+        android:text="NO EVENT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eventRecyclerView" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="452dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/TVEventActDesc"
+        app:layout_constraintStart_toStartOf="@+id/TVEventActDesc"
+        app:layout_constraintTop_toBottomOf="@+id/TVEventActDesc">
+
+        <Button
+            android:id="@+id/btnUpcoming"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_left_selector"
+            android:fontFamily="@font/raleway"
+            android:padding="12dp"
+            android:text="UPCOMING"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnJoined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_right_selector"
+            android:fontFamily="@font/raleway"
+            android:padding="12dp"
+            android:text="JOINED"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+         
+    </LinearLayout>
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/eventRecyclerView"-->
+    <!--        android:layout_width="209dp"-->
+    <!--        android:layout_height="173dp"-->
+    <!--        android:scrollbars="vertical"-->
+    <!--        tools:layout_editor_absoluteX="88dp"-->
+    <!--        tools:layout_editor_absoluteY="445dp" />-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddEvent"
+        android:layout_width="71dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="88dp"
+        android:contentDescription="Add Event"
+        android:hapticFeedbackEnabled="true"
+        android:src="@drawable/baseline_add_circle_outline_24"
+        app:backgroundTint="#688B55"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/TVEventActDesc"
+        android:layout_width="407dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/raleway"
+        android:text="Discover events organized by tutors to enhance\nyour learning experience."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVEventActTitle" />
+
+    <TextView
+        android:id="@+id/TVEventActTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/raleway_bold"
+        android:text="Events"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/FCVEvent"
+        android:name="com.example.studylah.EventUpcoming"
+        android:layout_width="match_parent"
+        android:layout_height="682dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/clear_btn"
+        android:tint="@color/white"
+        app:backgroundTint="#678A54"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

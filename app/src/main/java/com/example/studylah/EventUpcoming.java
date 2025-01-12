@@ -1,7 +1,5 @@
 package com.example.studylah;
 
-package com.example.events;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
