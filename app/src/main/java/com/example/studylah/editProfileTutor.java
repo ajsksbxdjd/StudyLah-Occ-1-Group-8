@@ -109,14 +109,12 @@ public class editProfileTutor extends AppCompatActivity {
                         try {
                             // Log the full server response for debugging
                             Log.d("ServerResponse", "Response: " + response.toString());
-
                             // Extract the "items" array from the response
                             JSONArray items = response.optJSONArray("items");
                             if (items == null || items.length() == 0) {
                                 Toast.makeText(this, "No user data found.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
                             // Find the user matching the provided username
                             JSONObject matchingUser = null;
                             for (int i = 0; i < items.length(); i++) {
@@ -126,13 +124,11 @@ public class editProfileTutor extends AppCompatActivity {
                                     break;
                                 }
                             }
-
                             // If no matching user is found
                             if (matchingUser == null) {
                                 Toast.makeText(this, "User not found.", Toast.LENGTH_SHORT).show();
                                 return;
                             }
-
                             // Extract subject data for the matching user
                             int bm = matchingUser.optInt("bm", 0);
                             int bi = matchingUser.optInt("bi", 0);
@@ -185,8 +181,6 @@ public class editProfileTutor extends AppCompatActivity {
             Toast.makeText(this, "Error encoding username.", Toast.LENGTH_SHORT).show();
         }
     }
-
-
     /**
      * Handles editing of fields dynamically
      */
@@ -212,8 +206,6 @@ public class editProfileTutor extends AppCompatActivity {
         resultIntent.putExtra("tutor_description", Description.getText().toString());
         return resultIntent;
     }
-
-
     /**
      * Shows a dialog for editing a field
      */
@@ -307,7 +299,6 @@ public class editProfileTutor extends AppCompatActivity {
     private interface UpdateCallback {
         void onUpdate(boolean success, String errorMessage);
     }
-
     @Override
     protected void onDestroy() {
         // Ensure no redundant callback is unregistered

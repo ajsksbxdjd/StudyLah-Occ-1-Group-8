@@ -136,7 +136,7 @@
         android:id="@+id/editSubjectButton"
         android:layout_width="375dp"
         android:layout_height="68dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="76dp"
         android:backgroundTint="#698C56"
         android:fontFamily="@font/raleway_medium"
         android:text="Edit Subject Preference"

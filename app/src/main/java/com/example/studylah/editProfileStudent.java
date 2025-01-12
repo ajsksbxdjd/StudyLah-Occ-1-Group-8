@@ -263,8 +263,6 @@ public class editProfileStudent extends AppCompatActivity {
 
         builder.show();
     }
-
-
     private void updateFieldInDatabase(String fieldName, String newValue, String currentUsername, UpdateCallback callback) {
         String url = "https://apex.oracle.com/pls/apex/wia2001_database_oracle/student/users";
 
@@ -312,7 +310,6 @@ public class editProfileStudent extends AppCompatActivity {
     private interface UpdateCallback {
         void onUpdate(boolean success, String errorMessage);
     }
-
     @Override
     protected void onDestroy() {
         // Ensure no redundant callback is unregistered

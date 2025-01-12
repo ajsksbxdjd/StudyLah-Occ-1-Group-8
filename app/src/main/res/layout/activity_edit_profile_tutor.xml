@@ -188,8 +188,8 @@
 
     <TextView
         android:id="@+id/Description"
-        android:layout_width="315dp"
-        android:layout_height="101dp"
+        android:layout_width="318dp"
+        android:layout_height="118dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/raleway_medium"
         android:textSize="20sp"
@@ -215,7 +215,7 @@
         android:id="@+id/editSubjectButton"
         android:layout_width="375dp"
         android:layout_height="68dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#698C56"
         android:fontFamily="@font/raleway_medium"
         android:text="Edit Subject Preference"
