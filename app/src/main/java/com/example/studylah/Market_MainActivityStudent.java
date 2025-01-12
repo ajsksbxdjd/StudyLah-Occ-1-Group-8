@@ -6,13 +6,20 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
+import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 public class Market_MainActivityStudent extends AppCompatActivity {
 
@@ -27,11 +34,24 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
         username=getIntent().getStringExtra("username");
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        setupNavigation();
+        // Toolbar setup
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Marketplace");
+        }
+
+        // Drawer and Navigation setup
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+
+        // Set up hamburger menu
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         btnReferenceBook = findViewById(R.id.btnReferenceBook);
         btnPastYearBook = findViewById(R.id.btnPastYearBook);
@@ -81,6 +101,58 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
         getSupportFragmentManager().addOnBackStackChangedListener(this::updateButtonStyles);
         updateButtonStyles();
+    }
+
+    private void setupNavigation() {
+        // Drawer and Navigation setup
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+
+        // Side Navigation Item Click Handling
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+            Intent intent;
+
+            if (id == R.id.side_nav_find_tutor) {
+                intent = new Intent(this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_home) {
+                intent = new Intent(this, StudentHome.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_events) {
+                intent = new Intent(this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_marketplace) {
+                intent = new Intent(this, Market_MainActivityStudent.class);
+                startActivity(intent);
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        });
+
+        // Bottom Navigation Item Click Handling
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+            Intent intent;
+
+            if (id == R.id.nav_home) {
+                intent = new Intent(this, StudentHome.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_marketplace) {
+                intent = new Intent(this, Market_MainActivityStudent.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_mentoring) {
+                intent = new Intent(this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_events) {
+                intent = new Intent(this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            }
+
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        });
     }
 
     private void updateButtonStyles() {

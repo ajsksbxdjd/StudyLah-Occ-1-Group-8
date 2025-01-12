@@ -108,8 +108,8 @@
     <!-- Navigation Drawer -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-        android:layout_width="191dp"
-        android:layout_height="726dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/tutor_side_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

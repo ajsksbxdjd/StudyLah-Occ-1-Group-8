@@ -86,20 +86,19 @@ public class TutorHome extends AppCompatActivity {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
                 intent.putExtra("username",  username);
                 startActivity(intent);
-                finish();
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(TutorHome.this,TutorHome.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.side_nav_events) {
                 intent = new Intent(TutorHome.this, Mentoring_Tutors_List.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
-                finish();
+
             }
             drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection
             return true;
@@ -114,18 +113,18 @@ public class TutorHome extends AppCompatActivity {
             if (id == R.id.nav_home) {
                 intent = new Intent(TutorHome.this, TutorHome.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(TutorHome.this, Market_MainActivityTutor.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
-                finish();
+
                 bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
-                finish();
+
                 // Set the mentoring tab as selected
                 bottomNavigationView.setSelectedItemId(R.id.nav_mentoring);
             } else if (id == R.id.nav_events) {
@@ -173,7 +172,7 @@ public class TutorHome extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.log_out) {
                     // Handle log-out logic
-                    //handleLogout();
+                    finish();
                     return true;
                 }
                 return false;

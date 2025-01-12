@@ -49,7 +49,6 @@ public class Tutor_Schedules extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tutor_schedules);
 
         // Toolbar setup
@@ -70,6 +69,26 @@ public class Tutor_Schedules extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        // Handle side navigation item clicks
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            int id = menuItem.getItemId();
+            if (id == R.id.side_nav_schedules) {
+                // Logic for Schedules navigation
+                drawerLayout.closeDrawer(GravityCompat.START);
+            } else if (id == R.id.side_nav_home) {
+                Intent intent = new Intent(Tutor_Schedules.this, TutorHome.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_marketplace) {
+                Intent intent = new Intent(Tutor_Schedules.this, Market_MainActivityTutor.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_events) {
+                Intent intent = new Intent(Tutor_Schedules.this, Mentoring_Tutors_List.class);
+                startActivity(intent);
+            }
+            drawerLayout.closeDrawer(GravityCompat.START); // Close drawer after selection
+            return true;
+        });
+
         // VideoView setup
         VideoView videoView = findViewById(R.id.videoView);
         Uri videoUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.video_google_calendar);
@@ -83,8 +102,8 @@ public class Tutor_Schedules extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         // Retrieve username from Intent
-        Intent intent = getIntent();
-        username = intent.getStringExtra("username");
+        Intent Usernameintent = getIntent();
+        username = Usernameintent.getStringExtra("username");
         Log.d("Tutor_Schedules", "Current Username: " + username);
 
         if (username == null || username.isEmpty()) {
@@ -106,45 +125,11 @@ public class Tutor_Schedules extends AppCompatActivity {
                 submitGcLink(gcLink);
             }
         });
+
         setupNavigation();
         new ItemDetailsTask().execute();
     }
     private void setupNavigation() {
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-
-        // Set up hamburger menu
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, findViewById(R.id.toolbar),
-                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        // Side Navigation Item Click Handling
-        navigationView.setNavigationItemSelectedListener(menuItem -> {
-            int id = menuItem.getItemId();
-            Intent intent;
-
-            if (id == R.id.side_nav_schedules) {
-                intent = new Intent(this, Tutor_Schedules.class);
-                startActivity(intent);
-
-            } else if (id == R.id.side_nav_home) {
-                intent = new Intent(this, StudentHome.class);
-                startActivity(intent);
-
-            } else if (id == R.id.side_nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
-                startActivity(intent);
-
-            } else if (id == R.id.side_nav_marketplace) {
-                intent = new Intent(this, Market_MainActivityTutor.class);
-                startActivity(intent);
-
-            }
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
-        });
 
         // Bottom Navigation Item Click Handling
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -171,6 +156,7 @@ public class Tutor_Schedules extends AppCompatActivity {
             return true;
         });
     }
+
 
     private class ItemDetailsTask extends AsyncTask<Void, Void, String> {
         protected String doInBackground(Void... params) {

@@ -2,6 +2,7 @@ package com.example.studylah;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -105,6 +106,7 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
 
             // Handle click events for the tutor page
             holder.cardView.setOnClickListener(v -> {
+                Log.d("TutorPanelAdapter", "Clicked on position: " + position);
                 Intent intent = null;
 
                 switch (position) {
@@ -119,7 +121,12 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
 
                     case 2:
                         intent = new Intent(context, Market_MainActivityTutor.class);
-                        //Navigate to events overview
+                        break;
+                    default:
+                        break;
+                }
+                if (intent != null) {
+                    context.startActivity(intent);
                 }
             });
         }

@@ -172,7 +172,7 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
 
                         Map<String, Integer> subjectsMap = new HashMap<>();
                         subjectsMap.put("Malay", tutorJson.getInt("bm"));
-                        subjectsMap.put("Englis", tutorJson.getInt("bi"));
+                        subjectsMap.put("English", tutorJson.getInt("bi"));
                         subjectsMap.put("Math", tutorJson.getInt("math"));
                         subjectsMap.put("Add Math", tutorJson.getInt("add_math"));
                         subjectsMap.put("Physics", tutorJson.getInt("physics"));
