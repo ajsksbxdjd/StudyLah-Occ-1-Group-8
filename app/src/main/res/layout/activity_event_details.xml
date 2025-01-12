@@ -1,10 +1,382 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7EFE2"
     tools:context=".EventDetails">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ETPublishDate"
+                android:layout_width="140dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/ETEventTime"
+                app:layout_constraintTop_toBottomOf="@+id/TVPublishDate" />
+
+            <Button
+                android:id="@+id/BtnAddImg"
+                android:layout_width="362dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="36dp"
+                android:backgroundTint="#EFC86A"
+                android:drawableTop="@drawable/baseline_add_circle_outline_24"
+                android:drawablePadding="0dp"
+                android:fontFamily="@font/raleway_medium"
+                android:gravity="center"
+                android:padding="40dp"
+                android:paddingTop="0dp"
+                android:text="Upload an image as the event cover"
+                android:textColor="#000000"
+                app:cornerRadius="20dp"
+                app:iconPadding="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/BtnCreate"
+                android:layout_width="360dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#688B55"
+                android:drawablePadding="0dp"
+                android:fontFamily="@font/raleway_medium"
+                android:gravity="center"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:text="CREATE"
+                android:textColor="#FFFFFF"
+                app:cornerRadius="20dp"
+                app:iconPadding="0dp"
+                app:layout_constraintEnd_toEndOf="@+id/ETTutorEmail"
+                app:layout_constraintStart_toStartOf="@+id/ETTutorEmail"
+                app:layout_constraintTop_toBottomOf="@+id/ETTutorEmail" />
+
+            <TextView
+                android:id="@+id/TVEventName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Event Name"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/BtnAddImg"
+                app:layout_constraintTop_toBottomOf="@+id/BtnAddImg" />
+
+            <TextView
+                android:id="@+id/TVLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Location"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVDate"
+                app:layout_constraintTop_toBottomOf="@+id/ETEventDate" />
+
+            <TextView
+                android:id="@+id/TVWebsiteLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Website Link"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVDescription"
+                app:layout_constraintTop_toBottomOf="@+id/ETDesc" />
+
+            <TextView
+                android:id="@+id/TVRegLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Registration Link"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVWebsiteLink"
+                app:layout_constraintTop_toBottomOf="@+id/ETWebsiteLink" />
+
+            <TextView
+                android:id="@+id/TVTutorEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Tutor's Email"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVTutorName"
+                app:layout_constraintTop_toBottomOf="@+id/ETTutorName" />
+
+            <TextView
+                android:id="@+id/TVTutorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Tutor's Name"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVRegLink"
+                app:layout_constraintTop_toBottomOf="@+id/ETRegLink" />
+
+            <TextView
+                android:id="@+id/TVPublishDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Publish Date"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVTime"
+                app:layout_constraintTop_toBottomOf="@+id/ETRegLink" />
+
+            <TextView
+                android:id="@+id/TVDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Description"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVLocation"
+                app:layout_constraintTop_toBottomOf="@+id/ETLocation" />
+
+            <EditText
+                android:id="@+id/ETEventName"
+                android:layout_width="362dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Enter your event name"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVEventName"
+                app:layout_constraintTop_toBottomOf="@+id/TVEventName" />
+
+            <EditText
+                android:id="@+id/ETLocation"
+                android:layout_width="362dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Enter a location if in-person or URL if online"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVLocation"
+                app:layout_constraintTop_toBottomOf="@+id/TVLocation" />
+
+            <EditText
+                android:id="@+id/ETWebsiteLink"
+                android:layout_width="362dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Enter a URL to your website"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVWebsiteLink"
+                app:layout_constraintTop_toBottomOf="@+id/TVWebsiteLink" />
+
+            <EditText
+                android:id="@+id/ETRegLink"
+                android:layout_width="362dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Paste the URL where participants can register"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVRegLink"
+                app:layout_constraintTop_toBottomOf="@+id/TVRegLink" />
+
+            <EditText
+                android:id="@+id/ETTutorEmail"
+                android:layout_width="362dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Enter a valid email address"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVTutorEmail"
+                app:layout_constraintTop_toBottomOf="@+id/TVTutorEmail" />
+
+            <EditText
+                android:id="@+id/ETTutorName"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:hint="Enter tutor's name"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVTutorName"
+                app:layout_constraintTop_toBottomOf="@+id/TVTutorName" />
+
+            <TextView
+                android:id="@+id/TVDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Date"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/TVEventName"
+                app:layout_constraintTop_toBottomOf="@+id/ETEventName" />
+
+            <EditText
+                android:id="@+id/ETEventDate"
+                android:layout_width="140dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVDate"
+                app:layout_constraintTop_toBottomOf="@+id/TVDate" />
+
+            <ImageButton
+                android:id="@+id/BtnDatePicker"
+                android:layout_width="29dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="#00FFFFFF"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toStartOf="@+id/ETEventTime"
+                app:layout_constraintTop_toBottomOf="@+id/TVDate"
+                app:srcCompat="@mipmap/datetime_picker_foreground" />
+
+            <ImageButton
+                android:id="@+id/BtnPublishDatePicker"
+                android:layout_width="29dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#00FFFFFF"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="@+id/BtnTimePicker"
+                app:layout_constraintStart_toEndOf="@+id/ETPublishDate"
+                app:layout_constraintTop_toBottomOf="@+id/TVPublishDate"
+                app:srcCompat="@mipmap/datetime_picker_foreground" />
+
+            <ImageButton
+                android:id="@+id/BtnTimePicker"
+                android:layout_width="29dp"
+                android:layout_height="52dp"
+                android:backgroundTint="#00FFFFFF"
+                android:padding="0dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="@+id/ETEventName"
+                app:layout_constraintStart_toEndOf="@+id/ETEventTime"
+                app:layout_constraintTop_toBottomOf="@+id/TVTime"
+                app:srcCompat="@mipmap/datetime_picker_foreground" />
+
+            <EditText
+                android:id="@+id/ETEventTime"
+                android:layout_width="140dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:inputType="text"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVTime"
+                app:layout_constraintTop_toBottomOf="@+id/TVTime" />
+
+            <TextView
+                android:id="@+id/TVTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="148dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:text="Time"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/TVDate"
+                app:layout_constraintTop_toBottomOf="@+id/ETEventName" />
+
+            <EditText
+                android:id="@+id/ETDesc"
+                android:layout_width="362dp"
+                android:layout_height="118dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:gravity="start|top"
+                android:hint="Provide a brief overview of your event"
+                android:inputType="textMultiLine"
+                android:padding="15dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/TVDescription"
+                app:layout_constraintTop_toBottomOf="@+id/TVDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
