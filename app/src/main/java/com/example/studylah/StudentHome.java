@@ -121,7 +121,7 @@ public class StudentHome extends AppCompatActivity {
                 intent = new Intent(StudentHome.this, Pomodoro.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_todo_list) {
-                    intent = new Intent(StudentHome.this, Pomodoro.class);
+                    intent = new Intent(StudentHome.this, TodoMainActivity.class);
                     startActivity(intent);
                 } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);

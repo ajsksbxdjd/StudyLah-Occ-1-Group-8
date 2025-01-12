@@ -105,16 +105,20 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
 
             // Handle click events for the tutor page
             holder.cardView.setOnClickListener(v -> {
+                Intent intent = null;
+
                 switch (position) {
                     case 0:
                         // Navigate to upcoming sessions
+                        intent = new Intent(context, Tutor_Schedules.class);
                         break;
                     case 1:
                         // Navigate to manage marketplace
-                        Intent intent = new Intent(context, Market_MainActivityTutor.class);
+                         intent = new Intent(context, Market_MainActivityTutor.class);
                         break;
 
                     case 2:
+                        intent = new Intent(context, Market_MainActivityTutor.class);
                         //Navigate to events overview
                 }
             });

@@ -23,9 +23,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -36,9 +42,14 @@ import java.net.URL;
 
 public class Tutor_Schedules extends AppCompatActivity {
 
+
+    private String username, gcLink;
+    private RequestQueue requestQueue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_tutor_schedules);
 
         // Toolbar setup
@@ -69,26 +80,34 @@ public class Tutor_Schedules extends AppCompatActivity {
         videoView.setMediaController(mediaController);
 
         videoView.start(); // Start playing the video
+        requestQueue = Volley.newRequestQueue(this);
 
+        // Retrieve username from Intent
+        Intent intent = getIntent();
+        username = intent.getStringExtra("username");
+        Log.d("Tutor_Schedules", "Current Username: " + username);
 
+        if (username == null || username.isEmpty()) {
+            Toast.makeText(this, "Error retrieving username. Please try again.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
         // Submit button setup
         Button submitButton = findViewById(R.id.BtnSubmit);
         EditText etLink = findViewById(R.id.ETLink); // The input field for GC Link
 
-        submitButton.setOnClickListener(view -> {
+        submitButton.setOnClickListener(v -> {
             String gcLink = etLink.getText().toString().trim();
-            String username = "test_user"; // Hardcoded username for testing
-
             if (gcLink.isEmpty()) {
-                Toast.makeText(this, "Please enter your Google Calendar link.", Toast.LENGTH_SHORT).show();
-                return;
+                Toast.makeText(this, "Please enter a valid GC Link.", Toast.LENGTH_SHORT).show();
+            } else {
+                // Call AsyncTask to update the GC Link
+                submitGcLink(gcLink);
             }
-
-            // Perform the HTTP POST operation
-            new SubmitGCLinkTask(this, username, gcLink).execute();
         });
         setupNavigation();
+        new ItemDetailsTask().execute();
     }
     private void setupNavigation() {
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -106,22 +125,22 @@ public class Tutor_Schedules extends AppCompatActivity {
             int id = menuItem.getItemId();
             Intent intent;
 
-            if (id == R.id.side_nav_find_tutor) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+            if (id == R.id.side_nav_schedules) {
+                intent = new Intent(this, Tutor_Schedules.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.side_nav_events) {
                 intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
-                finish();
-            } else if (id == R.id.side_nav_flashcards) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+
+            } else if (id == R.id.side_nav_marketplace) {
+                intent = new Intent(this, Market_MainActivityTutor.class);
                 startActivity(intent);
-                finish();
+
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
@@ -140,75 +159,102 @@ public class Tutor_Schedules extends AppCompatActivity {
             if (id == R.id.nav_home) {
                 intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
-                finish();
+
             } else if (id == R.id.nav_marketplace) {
-                intent = new Intent(this, TutorHome.class);
+                intent = new Intent(this, Market_MainActivityTutor.class);
                 startActivity(intent);
-                finish();
             } else if (id == R.id.nav_events) {
                 intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
-                finish();
             }
 
             return true;
         });
     }
 
-        private static class SubmitGCLinkTask extends AsyncTask<Void, Void, String> {
-        private final Context context;
-        private final String username;
-        private final String gcLink;
-
-        SubmitGCLinkTask(Context context, String username, String gcLink) {
-            this.context = context;
-            this.username = username;
-            this.gcLink = gcLink;
-        }
-
-        @Override
-        protected String doInBackground(Void... voids) {
+    private class ItemDetailsTask extends AsyncTask<Void, Void, String> {
+        protected String doInBackground(Void... params) {
+            String result = "";
             try {
-                URL url = new URL("https://apex.oracle.com/pls/apex/wia2001_database_oracle/tutor/users"); // Replace with your endpoint
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setDoOutput(true);
+                URL url = new URL("https://apex.oracle.com/pls/apex/wia2001_database_oracle/tutor/users");
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setRequestMethod("GET");
 
-                // Create JSON body
-                JSONObject jsonBody = new JSONObject();
-                jsonBody.put("username", username);
-                jsonBody.put("gc_link", gcLink);
-
-                // Write the JSON body to the output stream
-                try (OutputStream os = connection.getOutputStream()) {
-                    os.write(jsonBody.toString().getBytes());
-                    os.flush();
+                BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
                 }
-
-                // Read the response
-                int responseCode = connection.getResponseCode();
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    try (BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()))) {
-                        StringBuilder response = new StringBuilder();
-                        String line;
-                        while ((line = br.readLine()) != null) {
-                            response.append(line);
-                        }
-                        return response.toString();
-                    }
-                } else {
-                    return "Error: " + responseCode;
-                }
+                in.close();
+                result = response.toString();
             } catch (Exception e) {
                 e.printStackTrace();
-                return "Error: " + e.getMessage();
             }
+            return result;
         }
 
-        @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            if (result != null && !result.isEmpty()) {
+                try {
+                    JSONObject jsonResponse = new JSONObject(result);
+                    JSONArray items = jsonResponse.getJSONArray("items");
+
+                    for (int i = 0; i < items.length(); i++) {
+                        JSONObject item = items.getJSONObject(i);
+                        if (username.equals(item.getString("username"))) {
+                            submitGcLink(gcLink);
+                            break;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private void submitGcLink(String xxx) {
+        String url = "https://apex.oracle.com/pls/apex/wia2001_database_oracle/tutor/users"; // Update URL if needed
+
+        try {
+            // Prepare JSON payload
+            JSONObject payload = new JSONObject();
+            payload.put("username", username);
+            payload.put("p_gc_link", gcLink);
+
+            // Create request
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url, payload,
+                    response -> {
+                        try {
+                            String status = response.getString("status");
+                            String message = response.getString("message");
+
+                            if ("success".equals(status)) {
+                                Toast.makeText(this, "GC Link updated successfully!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(this, MainActivity.class); // Replace with your desired activity
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(this, "Failed to update GC Link: " + message, Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            Toast.makeText(this, "Invalid response from server.", Toast.LENGTH_SHORT).show();
+                        }
+                    },
+                    error -> {
+                        String errorMessage = "Network Error: ";
+                        if (error.networkResponse != null) {
+                            errorMessage += new String(error.networkResponse.data);
+                        } else {
+                            errorMessage += error.getMessage();
+                        }
+                        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+                    });
+
+            requestQueue.add(request);
+
+        } catch (JSONException e) {
+            Toast.makeText(this, "Error forming request.", Toast.LENGTH_SHORT).show();
         }
     }
 }

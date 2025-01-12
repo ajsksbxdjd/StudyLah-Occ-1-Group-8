@@ -83,9 +83,9 @@ public class TutorHome extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
             Intent intent;
-
             if (id == R.id.side_nav_schedules) {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
+                intent.putExtra("username",  username);
                 startActivity(intent);
                 finish();
             } else if (id == R.id.side_nav_home) {
@@ -122,6 +122,7 @@ public class TutorHome extends AppCompatActivity {
                 bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
                 // Set the mentoring tab as selected
@@ -181,7 +182,10 @@ public class TutorHome extends AppCompatActivity {
             // Show the PopupMenu
             popupMenu.show();
         });
+
+
     }
+
 
     // Method to navigate to Edit Profile page
     private void openEditProfilePage() {
