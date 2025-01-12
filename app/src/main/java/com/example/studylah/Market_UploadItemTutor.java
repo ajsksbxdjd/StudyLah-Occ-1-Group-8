@@ -74,7 +74,7 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
     private static final int PICK_IMAGE_REQUEST = 1;
     private Uri selectedImageUri;  // To store the selected image URI
 
-    private String tutor_username;
+    private String username;
     private String tutor_name;
     private String tutor_email;
 
@@ -84,7 +84,7 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_upload_item_tutor);
 
-        tutor_username = getIntent().getStringExtra("tutor_username");
+        username = getIntent().getStringExtra("username");
 
         // Initialize ImageButton
         ImageButton imageButton = findViewById(R.id.imageButton1);
@@ -245,7 +245,7 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
 
                     for (int i = 0; i < items.length(); i++) {
                         JSONObject item = items.getJSONObject(i);
-                        if (tutor_username.equals(item.getString("username"))) {
+                        if (username.equals(item.getString("username"))) {
                             itemFound = true;
 
                             tutor_name = item.getString("display_name");
