@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7EFE2"
+    android:backgroundTint="#F7EFE2">
+
+    <TextView
+        android:id="@+id/TVEventNameTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/raleway_bold"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/exitButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="56dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/eventImageDetails"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/eventImageDetails"
+        android:layout_width="447dp"
+        android:layout_height="213dp"
+        android:layout_marginTop="84dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="446dp"
+        android:layout_height="699dp"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventImageDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/eventNameDetails"
+                android:layout_width="449dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/raleway_bold"
+                android:textAlignment="center"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/eventTutorDetails"
+                android:layout_width="449dp"
+                android:layout_height="39dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/eventNameDetails"
+                app:layout_constraintStart_toStartOf="@+id/eventNameDetails"
+                app:layout_constraintTop_toBottomOf="@+id/eventNameDetails" />
+
+            <TextView
+                android:id="@+id/eventDate"
+                android:layout_width="360dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/Date"
+                app:layout_constraintTop_toBottomOf="@+id/TVDetailsTitle" />
+
+            <TextView
+                android:id="@+id/eventTime"
+                android:layout_width="356dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/Time"
+                app:layout_constraintTop_toBottomOf="@+id/eventDate" />
+
+            <TextView
+                android:id="@+id/eventLocation"
+                android:layout_width="322dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/Location"
+                app:layout_constraintTop_toBottomOf="@+id/eventTime" />
+
+            <TextView
+                android:id="@+id/eventWebsiteLink"
+                android:layout_width="282dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/WebsiteLink"
+                app:layout_constraintTop_toBottomOf="@+id/eventLocation" />
+
+            <TextView
+                android:id="@+id/eventRegistrationLink"
+                android:layout_width="244dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/RegistrationLink"
+                app:layout_constraintTop_toBottomOf="@+id/eventWebsiteLink" />
+
+            <TextView
+                android:id="@+id/eventTutorEmail"
+                android:layout_width="282dp"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@+id/TutorEmail"
+                app:layout_constraintTop_toBottomOf="@+id/eventRegistrationLink" />
+
+            <TextView
+                android:id="@+id/eventDescription"
+                android:layout_width="410dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:textAlignment="textStart"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/Description"
+                app:layout_constraintTop_toBottomOf="@+id/Description" />
+
+            <TextView
+                android:id="@+id/TVDetailsTitle"
+                android:layout_width="181dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="DETAILS"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/eventTutorDetails"
+                app:layout_constraintStart_toStartOf="@+id/eventTutorDetails"
+                app:layout_constraintTop_toBottomOf="@+id/eventTutorDetails" />
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Date: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TVDetailsTitle" />
+
+            <TextView
+                android:id="@+id/Location"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Location: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/Time"
+                app:layout_constraintTop_toBottomOf="@+id/Time" />
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="123dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Description:"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/TutorEmail"
+                app:layout_constraintTop_toBottomOf="@+id/TutorEmail" />
+
+            <TextView
+                android:id="@+id/TVLeaveComment"
+                android:layout_width="365dp"
+                android:layout_height="37dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Leave a Comment or Feedback here:"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/ratingBar"
+                app:layout_constraintStart_toStartOf="@+id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@+id/TVRateDsc" />
+
+            <TextView
+                android:id="@+id/RegistrationLink"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Registration Link: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/WebsiteLink"
+                app:layout_constraintTop_toBottomOf="@+id/WebsiteLink" />
+
+            <TextView
+                android:id="@+id/TutorEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Tutor's Email: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/RegistrationLink"
+                app:layout_constraintTop_toBottomOf="@+id/RegistrationLink" />
+
+            <TextView
+                android:id="@+id/WebsiteLink"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Website Link: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/Location"
+                app:layout_constraintTop_toBottomOf="@+id/Location" />
+
+            <TextView
+                android:id="@+id/Time"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:fontFamily="@font/raleway_bold"
+                android:text="Time: "
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/Date"
+                app:layout_constraintTop_toBottomOf="@+id/Date" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="241dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="20dp"
+                android:progressTint="#EFC86A"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/eventDescription"
+                app:layout_constraintStart_toStartOf="@+id/eventDescription"
+                app:layout_constraintTop_toBottomOf="@+id/eventDescription" />
+
+            <TextView
+                android:id="@+id/TVRateDsc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway"
+                android:text="Rate this event!"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/ratingBar"
+                app:layout_constraintStart_toStartOf="@+id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+            <EditText
+                android:id="@+id/ETComment"
+                android:layout_width="400dp"
+                android:layout_height="158dp"
+                android:background="@drawable/rounded_shadow_edittext_eventdetails"
+                android:elevation="5dp"
+                android:ems="10"
+                android:fontFamily="@font/raleway"
+                android:gravity="start|top"
+                android:hint="Provide a brief overview of your event"
+                android:inputType="textMultiLine"
+                android:padding="15dp"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/TVLeaveComment"
+                app:layout_constraintStart_toStartOf="@+id/TVLeaveComment"
+                app:layout_constraintTop_toBottomOf="@+id/TVLeaveComment" />
+
+            <Button
+                android:id="@+id/BtnSubmitBtn"
+                android:layout_width="364dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#688B55"
+                android:text="SUBMIT"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/ETComment"
+                app:layout_constraintStart_toStartOf="@+id/ETComment"
+                app:layout_constraintTop_toBottomOf="@+id/ETComment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMarkAsJoined"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:contentDescription="Mark as Joined"
+        android:src="@drawable/task_done"
+        app:backgroundTint="#688B55"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
