@@ -38,6 +38,7 @@ public class EventActivity extends AppCompatActivity {
     private Button btnUpcoming;
     private Button btnJoined;
 
+
     private NotificationManager notificationManager;
 
     @Override
@@ -122,6 +123,9 @@ public class EventActivity extends AppCompatActivity {
 
         btnUpcoming = findViewById(R.id.btnUpcoming);
         btnJoined = findViewById(R.id.btnJoined);
+
+        btnUpcoming.setTypeface(null, Typeface.BOLD);
+        btnJoined.setTypeface(null, Typeface.NORMAL);
 
         // Set the "upcoming" button to be bold by default
         btnUpcoming.setTypeface(null, Typeface.BOLD);
