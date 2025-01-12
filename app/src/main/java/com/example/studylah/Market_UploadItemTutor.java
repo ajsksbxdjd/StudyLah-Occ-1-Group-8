@@ -341,13 +341,11 @@ public class Market_UploadItemTutor extends FragmentActivity implements OnMapRea
                     Log.d("Encoded Image", encodedImage);
                     if (encodedImage.isEmpty()) {
                         jsonBody.put("item_picture", JSONObject.NULL);
-                        Toast.makeText(this, "Encoded image is empty", Toast.LENGTH_SHORT).show();
                     } else {
                         jsonBody.put("item_picture", encodedImage);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.d("Image Error", e.getMessage());
                 }
             } else {
                 jsonBody.put("item_picture", JSONObject.NULL);
