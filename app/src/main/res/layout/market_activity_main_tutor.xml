@@ -67,6 +67,11 @@
         <!-- Upload Item Button -->
 
         <!-- View Map Button -->
+
+        <!-- Fragment Container -->
+
+        <!-- Bottom Navigation -->
+
         <Button
             android:id="@+id/AddItem"
             android:layout_width="wrap_content"
@@ -76,15 +81,11 @@
             android:text="Upload items for sell"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintHorizontal_bias="0.08"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.152"
+            app:layout_constraintVertical_bias="0.18"
             tools:ignore="HardcodedText" />
-
-        <!-- Fragment Container -->
-
-        <!-- Bottom Navigation -->
 
         <Button
             android:id="@+id/viewMap"
@@ -103,9 +104,11 @@
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
-            android:layout_width="421dp"
-            android:layout_height="627dp"
+            android:layout_width="404dp"
+            android:layout_height="590dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/AddItem" />
 

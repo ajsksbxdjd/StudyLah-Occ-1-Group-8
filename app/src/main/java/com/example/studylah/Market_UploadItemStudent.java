@@ -337,18 +337,21 @@ public class Market_UploadItemStudent extends FragmentActivity implements OnMapR
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
                     byte[] imageBytes = byteArrayOutputStream.toByteArray();
                     // encode the byte array to a Base64 string
-                    String encodedImage = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+                    String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
                     if (encodedImage.isEmpty()) {
                         jsonBody.put("item_picture", JSONObject.NULL);
                         Toast.makeText(this, "Encoded image is empty", Toast.LENGTH_SHORT).show();
                     } else {
                         jsonBody.put("item_picture", encodedImage);
+                        Toast.makeText(this, "Encoded image is uploaded", Toast.LENGTH_SHORT).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
+                    Toast.makeText(this, "Failed to upload the encoded image", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 jsonBody.put("item_picture", JSONObject.NULL);
+                Toast.makeText(this, "Encoded image is empty", Toast.LENGTH_SHORT).show();
             }
 
             jsonBody.put("item_price", price);

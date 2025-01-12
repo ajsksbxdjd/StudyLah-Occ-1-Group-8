@@ -105,8 +105,8 @@
 
     <EditText
         android:id="@+id/editTextItemName2"
-        android:layout_width="167dp"
-        android:layout_height="35dp"
+        android:layout_width="154dp"
+        android:layout_height="39dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif-light"
         android:hint="RM"
@@ -116,10 +116,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintHorizontal_bias="0.873"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintVertical_bias="0.014" />
 
     <EditText
         android:id="@+id/editTextItemName3"
@@ -142,8 +142,8 @@
 
     <AutoCompleteTextView
         android:id="@+id/editTextItemName4"
-        android:layout_width="167dp"
-        android:layout_height="35dp"
+        android:layout_width="212dp"
+        android:layout_height="50dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif-light"
         android:hint="Search"
@@ -153,10 +153,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.135"
+        app:layout_constraintHorizontal_bias="0.165"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Switch
         android:id="@+id/switch1"
@@ -283,17 +283,17 @@
         app:layout_constraintHorizontal_bias="0.908"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.74" />
 
     <ListView
         android:id="@+id/suggestionsListView"
-        android:layout_width="173dp"
-        android:layout_height="90dp"
+        android:layout_width="222dp"
+        android:layout_height="89dp"
         app:layout_constraintBottom_toBottomOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
