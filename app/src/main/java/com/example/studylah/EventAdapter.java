@@ -1,7 +1,5 @@
 package com.example.studylah;
 
-package com.example.events;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
