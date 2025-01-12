@@ -140,6 +140,104 @@ public class EventDetails extends AppCompatActivity {
         BtnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Validate all fields
+                if (eventPicture == null) {
+                    Toast.makeText(EventDetails.this, "Event Picture is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETEventName.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Check if event name exceeds 15 characters
+                if (ETEventName.getText().toString().length() > 15) {
+                    Toast.makeText(EventDetails.this, "Event Name cannot exceed 15 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETEventDate.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Date is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (ETEventTime.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Time is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (ETLocation.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Location is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (ETDesc.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Description is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (ETWebsiteLink.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Event Website Link is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate URL format
+                if (!android.util.Patterns.WEB_URL.matcher(ETWebsiteLink.getText().toString()).matches()) {
+                    Toast.makeText(EventDetails.this, "Invalid Event Website Link format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETRegLink.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Registration Link is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!android.util.Patterns.WEB_URL.matcher(ETRegLink.getText().toString()).matches()) {
+                    Toast.makeText(EventDetails.this, "Invalid Registration Link format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETTutorName.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Tutor Name is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Check if tutor name exceeds 10 characters
+                if (ETTutorName.getText().toString().length() > 10) {
+                    Toast.makeText(EventDetails.this, "Tutor Name cannot exceed 10 characters", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETPublishDate.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Publish Date is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate that publish date is earlier than event date
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                try {
+                    Date publishDate = sdf.parse(ETPublishDate.getText().toString());
+                    Date eventDate = sdf.parse(ETEventDate.getText().toString());
+
+                    if (publishDate != null && eventDate != null && !publishDate.before(eventDate)) {
+                        Toast.makeText(EventDetails.this, "Publish date must be earlier than event date", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Toast.makeText(EventDetails.this, "Invalid date format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ETTutorEmail.getText().toString().isEmpty()) {
+                    Toast.makeText(EventDetails.this, "Tutor Email is required", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Validate email format
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(ETTutorEmail.getText().toString()).matches()) {
+                    Toast.makeText(EventDetails.this, "Invalid Tutor Email format", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 // Send data to API
                 sendDataToApi();
             }
