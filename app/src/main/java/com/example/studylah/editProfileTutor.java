@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,12 +56,6 @@ public class editProfileTutor extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
-        // Initialize Views
-        ShapeableImageView imageView = findViewById(R.id.profilePicture);
-        Glide.with(this)
-                .load(R.drawable.profileicon) // Ensure profileicon exists in drawable folder
-                .into(imageView);
-
         Username = findViewById(R.id.Username);
         DisplayName = findViewById(R.id.DisplayName);
         Email = findViewById(R.id.Email);
@@ -79,18 +74,6 @@ public class editProfileTutor extends AppCompatActivity {
         String initialEmail = intent.getStringExtra("email");
         String initialUniversity = intent.getStringExtra("university");
         String initialTutorDescription = intent.getStringExtra("tutor_description");
-        int bm=intent.getIntExtra("bm",0);
-        int bi=intent.getIntExtra("bi",0);
-        int math=intent.getIntExtra("math",0);
-        int add_math=intent.getIntExtra("add_math",0);
-        int physics=intent.getIntExtra("physics",0);
-        int chemistry=intent.getIntExtra("chemistry",0);
-        int biology=intent.getIntExtra("biology",0);
-        int sejarah=intent.getIntExtra("sejarah",0);
-        int moral=intent.getIntExtra("moral",0);
-        int islam=intent.getIntExtra("islam",0);
-        int economy=intent.getIntExtra("economy",0);
-        int accounting=intent.getIntExtra("accounting",0);
 
         // Set TextViews
         Username.setText(initialUsername);
@@ -106,6 +89,10 @@ public class editProfileTutor extends AppCompatActivity {
         editDescription.setOnClickListener(v -> handleFieldEdit("Description", Description, "p_tutor_description", Username.getText().toString()));
         Button editSubjectButton=findViewById(R.id.editSubjectButton);
         editSubjectButton.setOnClickListener(v -> fetchLatestSubjectData());
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
     }
     private void fetchLatestSubjectData() {
         try {

@@ -12,11 +12,11 @@
         android:id="@+id/editUsername"
         android:layout_width="55dp"
         android:layout_height="62dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginTop="192dp"
         android:backgroundTint="#E7E4C8"
         android:contentDescription="change picture"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.736"
+        app:layout_constraintHorizontal_bias="0.743"
         app:layout_constraintStart_toEndOf="@+id/Username"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_edit" />
@@ -36,30 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="154dp"
-        android:layout_height="153dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Title"
-        app:shapeAppearanceOverlay="@style/CircularImageView"
-        app:srcCompat="@drawable/profileicon" />
-
-    <ImageButton
-        android:id="@+id/editPicture"
-        android:layout_width="55dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="228dp"
-        android:backgroundTint="#E7E4C8"
-        android:contentDescription="change picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.651"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <ImageButton
         android:id="@+id/editDisplayName"
         android:layout_width="55dp"
@@ -76,16 +52,16 @@
         android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/raleway_medium"
         android:text="Username:"
         android:textColor="#3B403C"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+        app:layout_constraintTop_toBottomOf="@+id/Title" />
 
     <TextView
         android:id="@+id/textEmail"
@@ -160,14 +136,24 @@
         android:id="@+id/editSubjectButton"
         android:layout_width="375dp"
         android:layout_height="68dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#698C56"
         android:fontFamily="@font/raleway_medium"
         android:text="Edit Subject Preference"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DisplayName" />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:contentDescription="Back Button"
+        android:src="@drawable/back_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
