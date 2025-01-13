@@ -3,6 +3,10 @@ package com.example.studylah;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Manages flashcard decks and their associated flashcards.
+ * Provides methods for adding, retrieving, and deleting decks and cards.
+ */
 public class FlashcardDeckManager {
     private static HashMap<String, ArrayList<Flashcard>> deckStorage = new HashMap<>();
 
@@ -15,7 +19,6 @@ public class FlashcardDeckManager {
     public static boolean deckExists(String deckName) {
         return deckStorage.containsKey(deckName);
     }
-
 
     public static ArrayList<String> getAllDeckNames() {
         return new ArrayList<>(deckStorage.keySet());
@@ -39,7 +42,6 @@ public class FlashcardDeckManager {
                 return; // 🚨 Exit if duplicate found
             }
         }
-
         deckCards.add(card); // ✅ Add only unique flashcards
     }
 
