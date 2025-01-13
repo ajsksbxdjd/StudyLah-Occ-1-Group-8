@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,11 +61,6 @@ public class editProfileStudent extends AppCompatActivity {
 
         requestQueue = Volley.newRequestQueue(this);
         inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        ShapeableImageView imageView = findViewById(R.id.profilePicture);
-        Glide.with(this)
-                .load(R.drawable.profileicon) // Ensure profileicon exists in drawable folder
-                .into(imageView);
 
         Username = findViewById(R.id.Username);
         DisplayName = findViewById(R.id.DisplayName);
@@ -116,6 +112,10 @@ public class editProfileStudent extends AppCompatActivity {
         }));
         Button editSubjectButton=findViewById(R.id.editSubjectButton);
         editSubjectButton.setOnClickListener(v -> fetchLatestSubjectData());
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
     }
     private void fetchLatestSubjectData() {
         try {
@@ -263,8 +263,6 @@ public class editProfileStudent extends AppCompatActivity {
 
         builder.show();
     }
-
-
     private void updateFieldInDatabase(String fieldName, String newValue, String currentUsername, UpdateCallback callback) {
         String url = "https://apex.oracle.com/pls/apex/wia2001_database_oracle/student/users";
 
@@ -312,7 +310,6 @@ public class editProfileStudent extends AppCompatActivity {
     private interface UpdateCallback {
         void onUpdate(boolean success, String errorMessage);
     }
-
     @Override
     protected void onDestroy() {
         // Ensure no redundant callback is unregistered

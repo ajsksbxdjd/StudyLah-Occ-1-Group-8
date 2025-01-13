@@ -561,7 +561,4 @@ public class EventDetails extends AppCompatActivity {
             }
         }).start();
     }
-
-
-
 }

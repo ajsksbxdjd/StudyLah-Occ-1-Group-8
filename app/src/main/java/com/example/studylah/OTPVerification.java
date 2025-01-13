@@ -11,6 +11,7 @@ import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,6 +83,10 @@ public class OTPVerification extends AppCompatActivity {
 
         // Check cooldown status on activity start
         checkCooldown();
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
     }
 
     private void resendOTP() {

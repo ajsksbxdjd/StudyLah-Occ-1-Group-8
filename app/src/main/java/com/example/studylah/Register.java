@@ -14,6 +14,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -80,7 +81,7 @@ public class Register extends AppCompatActivity {
         verifyEmail = findViewById(R.id.verifyEmail);
         universityText = findViewById(R.id.textUniversity);
 
-        restoreData(); // Restore previous data if available
+        restoreData();
 
         // Handle role selection visibility
         roleGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -95,6 +96,11 @@ public class Register extends AppCompatActivity {
 
         // Handle registration button click
         registerButton.setOnClickListener(v -> handleRegister());
+
+        ImageView backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(v -> {
+            finish(); // Optional: Close current activity to prevent going back to it
+        });
 
         // Handle email validation
         email.addTextChangedListener(new TextWatcher() {
@@ -318,7 +324,7 @@ public class Register extends AppCompatActivity {
         // Proceed with sending the email
         Random random = new Random();
         int code = random.nextInt(8999) + 1000; // Generate a random 4-digit code
-        String url = "http://10.0.2.2:80/sendEmail.php"; // Your PHP script URL
+        String url = "http://10.0.2.2:80/sendEmail.php";
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
