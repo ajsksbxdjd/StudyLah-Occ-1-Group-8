@@ -11,6 +11,8 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -31,7 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
-public class EventActivity extends AppCompatActivity {
+public class EventActivityStudent extends AppCompatActivity {
 
 //    private LinearLayout eventContainer;
 //    private TextView noEventText;
@@ -63,20 +65,20 @@ public class EventActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Events Overview");
+            getSupportActionBar().setTitle("Events");
         }
 
-        // Drawer and Navigation setup
+        // Drawer setup
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
-
-        // Set up hamburger menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
         setupNavigation();
+
 
         // Check Alarm permission for Android 12 and above
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -137,7 +139,7 @@ public class EventActivity extends AppCompatActivity {
         fabAddEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EventActivity.this, EventDetails.class);
+                Intent intent = new Intent(EventActivityStudent.this, EventDetails.class);
                 startActivity(intent);
             }
         });
@@ -176,7 +178,7 @@ public class EventActivity extends AppCompatActivity {
         FloatingActionButton clearButton = findViewById(R.id.clearButton);
         clearButton.setOnClickListener(v -> {
             clearJoinedEvents();
-            Toast.makeText(EventActivity.this, "Joined events cleared", Toast.LENGTH_SHORT).show();
+            Toast.makeText(EventActivityStudent.this, "Joined events cleared", Toast.LENGTH_SHORT).show();
         });
 
         if (findViewById(R.id.FCVEvent) != null) {
@@ -212,26 +214,49 @@ public class EventActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        Menu menu = navigationView.getMenu();
+
+        // Get references to the sub-items
+        MenuItem flashcardsItem = menu.findItem(R.id.side_nav_flashcards);
+        MenuItem todoListItem = menu.findItem(R.id.side_nav_todo_list);
+        MenuItem pomodoroTimerItem = menu.findItem(R.id.side_nav_pomodoro_timer);
+
+        // Set an OnClickListener for the "Self Learning" item
+        menu.findItem(R.id.side_nav_self_learning).setOnMenuItemClickListener(item -> {
+            // Toggle visibility of sub-items
+            boolean areSubItemsVisible = flashcardsItem.isVisible();
+            flashcardsItem.setVisible(!areSubItemsVisible);
+            todoListItem.setVisible(!areSubItemsVisible);
+            pomodoroTimerItem.setVisible(!areSubItemsVisible);
+
+            return true; // Indicate the event has been handled
+        });
+
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
             Intent intent;
 
-            if (id == R.id.side_nav_schedules) {
-                intent = new Intent(this, Tutor_Schedules.class);
+            if (id == R.id.side_nav_find_tutor) {
+                intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
-
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
-
             } else if (id == R.id.side_nav_events) {
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
-
             } else if (id == R.id.side_nav_marketplace) {
-                intent = new Intent(this, Market_MainActivityTutor.class);
+                intent = new Intent(this, Market_MainActivityStudent.class);
                 startActivity(intent);
-
+            } else if (id == R.id.side_nav_flashcards) {
+                intent = new Intent(this, FlashcardMainActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_todo_list) {
+                intent = new Intent(this, TodoMainActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_pomodoro_timer) {
+                intent = new Intent(this, Pomodoro.class);
+                startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
@@ -245,14 +270,14 @@ public class EventActivity extends AppCompatActivity {
             Intent intent;
 
             if (id == R.id.nav_home) {
-                intent = new Intent(this, TutorHome.class);
+                intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
 
             } else if (id == R.id.nav_marketplace) {
-                intent = new Intent(this, Market_MainActivityTutor.class);
+                intent = new Intent(this, Market_MainActivityStudent.class);
                 startActivity(intent);
             } else if (id == R.id.nav_mentoring) {
-                intent = new Intent(this, Tutor_Schedules.class);
+                intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
             }
 
@@ -425,7 +450,7 @@ public class EventActivity extends AppCompatActivity {
 
     // Method to clear all joined events
     private void clearJoinedEvents() {
-        SharedPreferences sharedPreferences = EventActivity.this.getSharedPreferences("joined_events", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = EventActivityStudent.this.getSharedPreferences("joined_events", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear(); // Clear all data in SharedPreferences
         editor.apply(); // Apply the changes

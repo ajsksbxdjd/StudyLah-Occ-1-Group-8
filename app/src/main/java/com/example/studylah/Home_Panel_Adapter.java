@@ -1,9 +1,11 @@
 package com.example.studylah;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -11,16 +13,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.List;
 
 public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.PanelViewHolder> {
 
     private final Context context;
     private final List<HomePanel> panelList;
+    private BottomNavigationView bottomNavigationView;
 
-    public Home_Panel_Adapter(Context context, List<HomePanel> panelList) {
+    public Home_Panel_Adapter(Context context, List<HomePanel> panelList, BottomNavigationView bottomNavigationView) {
         this.context = context;
-        this.panelList = panelList; // Initialize the panel list
+        this.panelList = panelList;
+        this.bottomNavigationView = bottomNavigationView;
     }
 
     @NonNull
@@ -40,24 +47,30 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
         // Set click listener
         holder.cardView.setOnClickListener(v -> {
             Intent intent = null;
+            int navItemId = -1;
 
-            switch (position) {
-                case 0: // Find a Tutor
+            switch (panel.getTitle()) {
+                case "Find a Tutor":
                     intent = new Intent(context, Mentoring_Tutors_List.class);
+                    navItemId = R.id.nav_mentoring;
                     break;
-                case 1: // Flashcards
-                    intent = new Intent(context, FlashcardMainActivity.class); // Replace with the actual activity
+                case "Flashcards":
+                    intent = new Intent(context, FlashcardMainActivity.class);
                     break;
-                case 2: // Pomodoro Timer
-                    intent = new Intent(context, Pomodoro.class); // Replace with the actual activity
+                case "Pomodoro Timer":
+                    intent = new Intent(context, Pomodoro.class);
                     break;
-                case 3: // Upcoming Events
-                    intent = new Intent(context, Mentoring_Tutors_List.class); // Replace with the actual activity
+                case "Upcoming Events":
+                    intent = new Intent(context, EventActivityStudent.class);
+                    navItemId = R.id.nav_events;
                     break;
             }
 
             if (intent != null) {
                 context.startActivity(intent);
+                if (navItemId != -1) {
+                    bottomNavigationView.setSelectedItemId(navItemId);
+                }
             }
         });
     }
@@ -84,10 +97,12 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
 
         private final Context context;
         private final List<HomePanel> tutorPanelList;
+        private BottomNavigationView bottomNavigationView;
 
-        public TutorPanelAdapter(Context context, List<HomePanel> tutorPanelList) {
+        public TutorPanelAdapter(Context context, List<HomePanel> tutorPanelList,BottomNavigationView bottomNavigationView) {
             this.context = context;
             this.tutorPanelList = tutorPanelList;
+            this.bottomNavigationView = bottomNavigationView;
         }
 
         @NonNull
@@ -108,28 +123,32 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
             holder.cardView.setOnClickListener(v -> {
                 Log.d("TutorPanelAdapter", "Clicked on position: " + position);
                 Intent intent = null;
+                int navItemId = -1;
 
-                switch (position) {
-                    case 0:
-                        // Navigate to upcoming sessions
+                switch (panel.getTitle()) {
+                    case "Upcoming Sessions":
                         intent = new Intent(context, Tutor_Schedules.class);
+                        navItemId = R.id.nav_mentoring;
                         break;
-                    case 1:
-                        // Navigate to manage marketplace
-                         intent = new Intent(context, Market_MainActivityTutor.class);
-                        break;
-
-                    case 2:
+                    case "Manage Marketplace":
                         intent = new Intent(context, Market_MainActivityTutor.class);
+                        navItemId = R.id.nav_marketplace;
                         break;
-                    default:
+                    case "Events Overview":
+                        intent = new Intent(context, EventActivity.class);
+                        navItemId = R.id.nav_events;
                         break;
                 }
+
                 if (intent != null) {
                     context.startActivity(intent);
+                    if (navItemId != -1) {
+                        bottomNavigationView.setSelectedItemId(navItemId);
+                    }
                 }
             });
         }
+
 
         @Override
         public int getItemCount() {

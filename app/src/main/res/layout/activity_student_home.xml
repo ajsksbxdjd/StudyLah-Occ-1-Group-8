@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary_variant_color"
@@ -31,7 +31,7 @@
             android:padding="16dp"
             android:scrollbars="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -50,7 +50,7 @@
             android:backgroundTint="@color/primary_color"
             android:contentDescription=""
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar"
             app:srcCompat="@drawable/settings_icon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -61,6 +61,5 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header"
         app:menu="@menu/student_side_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

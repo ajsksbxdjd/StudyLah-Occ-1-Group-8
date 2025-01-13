@@ -3,7 +3,6 @@ package com.example.studylah;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
@@ -34,13 +33,14 @@ public class TutorHome extends AppCompatActivity {
     private int bm, bi, math, add_math, physics, chemistry, biology, sejarah, moral, islam, economy, accounting;
     private String university;
     private String tutor_description;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_home);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -64,7 +64,7 @@ public class TutorHome extends AppCompatActivity {
         panelList.add(new HomePanel("Events Overview", "View your event details and make updates anytime.", R.drawable.calendar_icon));
 
         // Set Adapter
-        Home_Panel_Adapter.TutorPanelAdapter adapter = new Home_Panel_Adapter.TutorPanelAdapter(this, panelList);
+        Home_Panel_Adapter.TutorPanelAdapter adapter = new Home_Panel_Adapter.TutorPanelAdapter(this, panelList, bottomNavigationView);
         recyclerView.setAdapter(adapter);
 
         ImageButton settingsBtn = findViewById(R.id.settings_button);
@@ -91,7 +91,7 @@ public class TutorHome extends AppCompatActivity {
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_events) {
-                intent = new Intent(TutorHome.this, Mentoring_Tutors_List.class);
+                intent = new Intent(TutorHome.this, EventActivity.class);
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_marketplace) {
@@ -128,7 +128,7 @@ public class TutorHome extends AppCompatActivity {
                 // Set the mentoring tab as selected
                 bottomNavigationView.setSelectedItemId(R.id.nav_mentoring);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(TutorHome.this, Mentoring_Tutors_List.class);
+                intent = new Intent(TutorHome.this, EventActivity.class);
                 startActivity(intent);
             }
 

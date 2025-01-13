@@ -16,7 +16,7 @@
 
         <!-- Buttons Section (Reference Book and Past Year Book) -->
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/tool_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary_variant_color"
@@ -38,7 +38,7 @@
             android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar"
             app:layout_constraintBottom_toTopOf="@+id/AddItem">
 
             <Button
@@ -47,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/tab_left_selector"
+                android:fontFamily="@font/raleway_medium"
                 android:padding="12dp"
                 android:text="Reference Book"
                 android:textColor="#000000"
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/tab_right_selector"
+                android:fontFamily="@font/raleway_medium"
                 android:padding="12dp"
                 android:text="Past Year Book"
                 android:textColor="#000000"
@@ -76,6 +78,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#698c56"
             android:drawableLeft="@drawable/upload_24"
+            android:fontFamily="@font/raleway_semibold"
             android:text="Upload items for sell"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +94,9 @@
             android:layout_height="57dp"
             android:backgroundTint="#698c56"
             android:drawableLeft="@drawable/baseline_map_24"
+            android:fontFamily="@font/raleway_semibold"
             android:text="View Map"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.918"

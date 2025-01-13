@@ -36,6 +36,7 @@
                 android:id="@+id/panel_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="Title"
                 android:textColor="#698C56"
                 android:textSize="20sp"
@@ -46,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="Description"
                 android:textColor="#000000"
                 android:textSize="18sp" />

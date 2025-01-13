@@ -17,16 +17,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/raleway_semibold"
         android:text="Title"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="normal" />
 
     <TextView
         android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_semibold"
         android:text="RM10"
-        android:textSize="14sp"
-        android:textColor="@android:color/holo_green_dark" />
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="16sp" />
 
 </LinearLayout>

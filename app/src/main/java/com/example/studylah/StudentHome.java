@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,13 +34,14 @@ import java.util.List;
 public class StudentHome extends AppCompatActivity {
     private String username, displayName, email;
     private int bm, bi, math, add_math, physics, chemistry, biology, sejarah, moral, islam, economy, accounting;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_home);
         
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
@@ -87,7 +84,7 @@ public class StudentHome extends AppCompatActivity {
         panelList.add(new HomePanel("Upcoming Events", "Don't miss opportunities to learn and grow!", R.drawable.upcoming_event_icon));
 
         // Set Adapter
-        Home_Panel_Adapter adapter = new Home_Panel_Adapter(this, panelList);
+        Home_Panel_Adapter adapter = new Home_Panel_Adapter(this, panelList, bottomNavigationView);
         recyclerView.setAdapter(adapter);
 
         ImageButton settingsBtn = findViewById(R.id.settings_button);
@@ -113,7 +110,7 @@ public class StudentHome extends AppCompatActivity {
                 intent = new Intent(StudentHome.this, StudentHome.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_events) {
-                intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
+                intent = new Intent(StudentHome.this, EventActivityStudent.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_flashcards) {
                 intent = new Intent(StudentHome.this, FlashcardMainActivity.class);
@@ -140,23 +137,16 @@ public class StudentHome extends AppCompatActivity {
             Intent intent;
 
             if (id == R.id.nav_home) {
-                intent = new Intent(StudentHome.this, StudentHome.class);
-                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(StudentHome.this, Market_MainActivityStudent.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
-                finish();
-                // Set the mentoring tab as selected
-                bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
                 startActivity(intent);
-                finish();
-                // Set the mentoring tab as selected
-                bottomNavigationView.setSelectedItemId(R.id.nav_mentoring);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
+                intent = new Intent(StudentHome.this, EventActivityStudent.class);
                 startActivity(intent);
             }
 

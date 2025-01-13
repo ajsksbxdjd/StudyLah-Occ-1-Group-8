@@ -3,16 +3,14 @@ package com.example.studylah;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -34,9 +32,8 @@ public class Market_MainActivityStudent extends AppCompatActivity {
 
         username=getIntent().getStringExtra("username");
 
-        setupNavigation();
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Marketplace");
@@ -52,6 +49,7 @@ public class Market_MainActivityStudent extends AppCompatActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        setupNavigation();
 
         btnReferenceBook = findViewById(R.id.btnReferenceBook);
         btnPastYearBook = findViewById(R.id.btnPastYearBook);
@@ -108,6 +106,30 @@ public class Market_MainActivityStudent extends AppCompatActivity {
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
 
+        // Set up hamburger menu
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, findViewById(R.id.tool_bar),
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        Menu menu = navigationView.getMenu();
+
+        // Get references to the sub-items
+        MenuItem flashcardsItem = menu.findItem(R.id.side_nav_flashcards);
+        MenuItem todoListItem = menu.findItem(R.id.side_nav_todo_list);
+        MenuItem pomodoroTimerItem = menu.findItem(R.id.side_nav_pomodoro_timer);
+
+        // Set an OnClickListener for the "Self Learning" item
+        menu.findItem(R.id.side_nav_self_learning).setOnMenuItemClickListener(item -> {
+            // Toggle visibility of sub-items
+            boolean areSubItemsVisible = flashcardsItem.isVisible();
+            flashcardsItem.setVisible(!areSubItemsVisible);
+            todoListItem.setVisible(!areSubItemsVisible);
+            pomodoroTimerItem.setVisible(!areSubItemsVisible);
+
+            return true; // Indicate the event has been handled
+        });
+
         // Side Navigation Item Click Handling
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
@@ -123,15 +145,24 @@ public class Market_MainActivityStudent extends AppCompatActivity {
                 intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_marketplace) {
-                intent = new Intent(this, Market_MainActivityStudent.class);
-                startActivity(intent);
-            }
+                drawerLayout.closeDrawer(GravityCompat.START);
+            } else if (id == R.id.side_nav_flashcards) {
+            intent = new Intent(this, FlashcardMainActivity.class);
+            startActivity(intent);
+            } else if (id == R.id.side_nav_todo_list) {
+            intent = new Intent(this, TodoMainActivity.class);
+            startActivity(intent);
+            } else if (id == R.id.side_nav_pomodoro_timer) {
+            intent = new Intent(this, Pomodoro.class);
+            startActivity(intent);
+        }
             drawerLayout.closeDrawer(GravityCompat.START);
             return true;
         });
 
         // Bottom Navigation Item Click Handling
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             Intent intent;

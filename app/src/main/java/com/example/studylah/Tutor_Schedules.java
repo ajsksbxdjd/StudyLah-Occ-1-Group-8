@@ -3,7 +3,6 @@ package com.example.studylah;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.MediaController;
@@ -23,15 +22,8 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class Tutor_Schedules extends AppCompatActivity {
 
@@ -44,7 +36,7 @@ public class Tutor_Schedules extends AppCompatActivity {
         setContentView(R.layout.activity_tutor_schedules);
 
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Tutors Schedules");
@@ -104,7 +96,7 @@ public class Tutor_Schedules extends AppCompatActivity {
 
         // Set up hamburger menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, findViewById(R.id.toolbar),
+                this, drawerLayout, findViewById(R.id.tool_bar),
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -114,8 +106,8 @@ public class Tutor_Schedules extends AppCompatActivity {
             Intent intent;
 
             if (id == R.id.side_nav_schedules) {
-                intent = new Intent(this, Tutor_Schedules.class);
-                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return true;
 
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(this, StudentHome.class);
@@ -173,9 +165,9 @@ public class Tutor_Schedules extends AppCompatActivity {
                                 String message = response.getString("message");
 
                                 if ("success".equals(status)) {
-                                    Toast.makeText(this, "Subjects saved successfully!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "Link saved successfully!", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(this, "Failed to save subjects: " + message, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(this, "Failed to save link: " + message, Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
                                 Toast.makeText(this, "Invalid response from server.", Toast.LENGTH_SHORT).show();

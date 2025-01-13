@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import androidx.core.view.GravityCompat;
@@ -62,10 +64,10 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
         });
 
         // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Tutors");
+            getSupportActionBar().setTitle("Find a tutor");
         }
 
         // Initialize RecyclerView
@@ -100,10 +102,28 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
 
         // Set up hamburger menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, findViewById(R.id.toolbar),
+                this, drawerLayout, findViewById(R.id.tool_bar),
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        Menu menu = navigationView.getMenu();
+
+        // Get references to the sub-items
+        MenuItem flashcardsItem = menu.findItem(R.id.side_nav_flashcards);
+        MenuItem todoListItem = menu.findItem(R.id.side_nav_todo_list);
+        MenuItem pomodoroTimerItem = menu.findItem(R.id.side_nav_pomodoro_timer);
+
+        // Set an OnClickListener for the "Self Learning" item
+        menu.findItem(R.id.side_nav_self_learning).setOnMenuItemClickListener(item -> {
+            // Toggle visibility of sub-items
+            boolean areSubItemsVisible = flashcardsItem.isVisible();
+            flashcardsItem.setVisible(!areSubItemsVisible);
+            todoListItem.setVisible(!areSubItemsVisible);
+            pomodoroTimerItem.setVisible(!areSubItemsVisible);
+
+            return true; // Indicate the event has been handled
+        });
 
         // Side Navigation Item Click Handling
         navigationView.setNavigationItemSelectedListener(menuItem -> {
@@ -116,11 +136,20 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
+            } else if (id == R.id.side_nav_marketplace) {
+                intent = new Intent(this, Market_MainActivityStudent.class);
+                startActivity(intent);
             } else if (id == R.id.side_nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivityStudent.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_flashcards) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, FlashcardMainActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_todo_list) {
+                intent = new Intent(this, TodoMainActivity.class);
+                startActivity(intent);
+            } else if (id == R.id.side_nav_pomodoro_timer) {
+                intent = new Intent(this, Pomodoro.class);
                 startActivity(intent);
             }
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -138,9 +167,6 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
                 startActivity(intent);
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(this, StudentHome.class);
-                startActivity(intent);
-            } else if (id == R.id.nav_mentoring) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
                 intent = new Intent(this, Mentoring_Tutors_List.class);

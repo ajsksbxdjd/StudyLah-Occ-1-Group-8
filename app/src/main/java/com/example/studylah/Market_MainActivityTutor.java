@@ -8,10 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -30,6 +27,22 @@ public class Market_MainActivityTutor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.market_activity_main_tutor);
+
+        // Toolbar setup
+        Toolbar toolbar = findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Marketplace");
+        }
+
+        // Drawer setup
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar,
+                R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         username=getIntent().getStringExtra("username");
 
@@ -81,28 +94,21 @@ public class Market_MainActivityTutor extends AppCompatActivity {
 
         getSupportFragmentManager().addOnBackStackChangedListener(this::updateButtonStyles);
         updateButtonStyles();
+        setupNavigation();
     }
     private void setupNavigation() {
 
-        // Toolbar setup
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Tutors Schedules");
-        }
-
-        // Drawer and Navigation setup
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.navigation_view);
 
         // Set up hamburger menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawerLayout, findViewById(R.id.toolbar),
+                this, drawerLayout, findViewById(R.id.tool_bar),
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Side Navigation Item Click Handling
+       //side navigation
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             int id = menuItem.getItemId();
             Intent intent;
@@ -125,6 +131,7 @@ public class Market_MainActivityTutor extends AppCompatActivity {
 
         // Bottom Navigation Item Click Handling
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
             Intent intent;

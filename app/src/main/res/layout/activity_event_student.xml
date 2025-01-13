@@ -54,108 +54,92 @@
             app:layout_constraintTop_toTopOf="parent"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-        <TextView
-            android:id="@+id/noEventText"
-            android:layout_width="58dp"
-            android:layout_height="31dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/raleway_bold"
-            android:gravity="center"
-            android:text="NO EVENT"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/eventRecyclerView" />
+    <TextView
+        android:id="@+id/noEventText"
+        android:layout_width="409dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/raleway_bold"
+        android:gravity="center"
+        android:text="NO EVENT"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/eventRecyclerView" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="452dp"
-            android:layout_height="60dp"
-            android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
-            android:background="#FFFFFF"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:padding="4dp"
-            app:layout_constraintEnd_toEndOf="@+id/TVEventActDesc"
-            app:layout_constraintStart_toStartOf="@+id/TVEventActDesc"
-            app:layout_constraintTop_toBottomOf="@+id/TVEventActDesc">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="452dp"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/TVEventActDesc"
+        app:layout_constraintStart_toStartOf="@+id/TVEventActDesc"
+        app:layout_constraintTop_toBottomOf="@+id/TVEventActDesc">
 
-            <Button
-                android:id="@+id/btnUpcoming"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/tab_left_selector"
-                android:fontFamily="@font/raleway_medium"
-                android:padding="12dp"
-                android:text="UPCOMING"
-                android:textColor="#000000" />
+        <Button
+            android:id="@+id/btnUpcoming"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_left_selector"
+            android:fontFamily="@font/raleway_medium"
+            android:padding="12dp"
+            android:text="UPCOMING"
+            android:textColor="#000000" />
 
-            <Button
-                android:id="@+id/btnJoined"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/tab_right_selector"
-                android:fontFamily="@font/raleway_medium"
-                android:padding="12dp"
-                android:text="JOINED"
-                android:textColor="#000000" />
-             
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnJoined"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/tab_right_selector"
+            android:fontFamily="@font/raleway_medium"
+            android:padding="12dp"
+            android:text="JOINED"
+            android:textColor="#000000" />
+         
+    </LinearLayout>
 
-        <!--    <androidx.recyclerview.widget.RecyclerView-->
-        <!--        android:id="@+id/eventRecyclerView"-->
-        <!--        android:layout_width="209dp"-->
-        <!--        android:layout_height="173dp"-->
-        <!--        android:scrollbars="vertical"-->
-        <!--        tools:layout_editor_absoluteX="88dp"-->
-        <!--        tools:layout_editor_absoluteY="445dp" />-->
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAddEvent"
-            android:layout_width="57dp"
-            android:layout_height="57dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Add Event"
-            android:hapticFeedbackEnabled="true"
-            android:src="@drawable/baseline_add_circle_outline_24"
-            app:backgroundTint="#688B55"
-            app:layout_constraintBottom_toBottomOf="@+id/FCVEvent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white" />
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/eventRecyclerView"-->
+    <!--        android:layout_width="209dp"-->
+    <!--        android:layout_height="173dp"-->
+    <!--        android:scrollbars="vertical"-->
+    <!--        tools:layout_editor_absoluteX="88dp"-->
+    <!--        tools:layout_editor_absoluteY="445dp" />-->
 
         <TextView
             android:id="@+id/TVEventActDesc"
             android:layout_width="407dp"
             android:layout_height="54dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/raleway_medium"
             android:text="Discover events organized by tutors to enhance\nyour learning experience."
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.512"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/FCVEvent"
             android:name="com.example.studylah.EventUpcoming"
-            android:layout_width="455dp"
-            android:layout_height="680dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="441dp"
+            android:layout_height="707dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-            app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/clearButton"
@@ -163,13 +147,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
             android:src="@drawable/clear_btn"
             android:tint="@color/white"
-            app:backgroundTint="#C13F3F"
+            app:backgroundTint="#B64646"
             app:layout_constraintBottom_toBottomOf="@+id/FCVEvent"
-            app:layout_constraintEnd_toStartOf="@+id/fabAddEvent" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
