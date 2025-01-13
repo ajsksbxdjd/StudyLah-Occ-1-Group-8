@@ -80,7 +80,6 @@ public class Register extends AppCompatActivity {
         registerButton = findViewById(R.id.updateButton);
         verifyEmail = findViewById(R.id.verifyEmail);
         universityText = findViewById(R.id.textUniversity);
-
         restoreData();
 
         // Handle role selection visibility
@@ -93,7 +92,6 @@ public class Register extends AppCompatActivity {
                 universityText.setVisibility(View.GONE);
             }
         });
-
         // Handle registration button click
         registerButton.setOnClickListener(v -> handleRegister());
 
@@ -177,16 +175,11 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this, "Please verify your email before registering!", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
         // Send data to the server
         new RegisterTask(user, display, uni, mail, pass, role).execute();
     }
-
     private class RegisterTask extends AsyncTask<Void, Void, String> {
-
         private String username, displayName, university, email, password, role;
-
         public RegisterTask(String username, String displayName, String university, String email, String password, String role) {
             this.username = username;
             this.displayName = displayName;
@@ -195,14 +188,12 @@ public class Register extends AppCompatActivity {
             this.password = password;
             this.role = role;
         }
-
         @Override
         protected String doInBackground(Void... voids) {
             try {
                 String baseUrl = "https://apex.oracle.com/pls/apex/wia2001_database_oracle/";
                 String endpoint = role.equals("Tutor") ? "tutor/users" : "student/users";
                 URL url = new URL(baseUrl + endpoint);
-
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.setRequestMethod("POST");
                 connection.setRequestProperty("Content-Type", "application/json");
@@ -224,7 +215,6 @@ public class Register extends AppCompatActivity {
                 os.write(json.toString().getBytes());
                 os.flush();
                 os.close();
-
                 int responseCode = connection.getResponseCode();
 
                 // Check response status code
@@ -265,17 +255,14 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Empty response from server", Toast.LENGTH_LONG).show();
                     return;
                 }
-
                 // Check if the response appears to be a JSON string (basic check)
                 if (!result.startsWith("{") || !result.endsWith("}")) {
                     Toast.makeText(Register.this, "Invalid response format", Toast.LENGTH_LONG).show();
                     return;
                 }
-
                 JSONObject response = new JSONObject(result);
                 String status = response.getString("status");
                 String message = response.getString("message");
-
                 if (status.equals("success")) {
                     // Show success dialog
                     new AlertDialog.Builder(Register.this)
@@ -310,7 +297,6 @@ public class Register extends AppCompatActivity {
             }
         }
     }
-
     public void sendVerifyEmail() {
         String emailAddress = email.getText().toString().trim();
 
@@ -320,7 +306,6 @@ public class Register extends AppCompatActivity {
             Toast.makeText(this, "Invalid email address format. Please correct it.", Toast.LENGTH_SHORT).show();
             return;
         }
-
         // Proceed with sending the email
         Random random = new Random();
         int code = random.nextInt(8999) + 1000; // Generate a random 4-digit code
@@ -361,16 +346,13 @@ public class Register extends AppCompatActivity {
                 return params;
             }
         };
-
         requestQueue.add(stringRequest);
     }
-
     private void startCooldownTimer() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         prefs.edit().putLong(TIMER_START_TIME, System.currentTimeMillis()).apply();
         checkCooldown();
     }
-
     private void checkCooldown() {
         SharedPreferences prefs = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         long startTime = prefs.getLong(TIMER_START_TIME, 0);
@@ -381,10 +363,8 @@ public class Register extends AppCompatActivity {
             verifyEmail.setEnabled(false);
             return;
         }
-
         long elapsedTime = System.currentTimeMillis() - startTime;
         long remainingTime = COOLDOWN_PERIOD - elapsedTime;
-
         if (remainingTime > 0) {
             verifyEmail.setEnabled(false);
             new CountDownTimer(remainingTime, 1000) {
@@ -404,7 +384,6 @@ public class Register extends AppCompatActivity {
             setUnderlineText(verifyEmail, "Verify your email");
         }
     }
-
     private void setUnderlineText(TextView textView, String text) {
         SpannableString content = new SpannableString(text);
         content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -430,7 +409,6 @@ public class Register extends AppCompatActivity {
     }
     private void restoreData() {
         Intent intent = getIntent();
-
         String usernameValue = intent.getStringExtra("username");
         String displayNameValue = intent.getStringExtra("displayName");
         String universityValue = intent.getStringExtra("university");
@@ -443,7 +421,6 @@ public class Register extends AppCompatActivity {
         if (universityValue != null) university.setText(universityValue);
         if (passwordValue != null) password.setText(passwordValue);
         if (confirmPasswordValue != null) confirmPassword.setText(confirmPasswordValue);
-
         if (roleValue != null) {
             if (roleValue.equals("Tutor")) {
                 ((RadioButton) findViewById(R.id.roleTutor)).setChecked(true);
