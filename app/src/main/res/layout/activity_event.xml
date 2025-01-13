@@ -127,7 +127,7 @@
             android:hapticFeedbackEnabled="true"
             android:src="@drawable/baseline_add_circle_outline_24"
             app:backgroundTint="#688B55"
-            app:layout_constraintBottom_toBottomOf="@+id/FCVEvent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:tint="@color/white" />
 
@@ -149,8 +149,8 @@
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/FCVEvent"
             android:name="com.example.studylah.EventUpcoming"
-            android:layout_width="455dp"
-            android:layout_height="680dp"
+            android:layout_width="448dp"
+            android:layout_height="592dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintHorizontal_bias="0.75"
@@ -163,12 +163,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
             android:src="@drawable/clear_btn"
             android:tint="@color/white"
             app:backgroundTint="#C13F3F"
-            app:layout_constraintBottom_toBottomOf="@+id/FCVEvent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
             app:layout_constraintEnd_toStartOf="@+id/fabAddEvent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

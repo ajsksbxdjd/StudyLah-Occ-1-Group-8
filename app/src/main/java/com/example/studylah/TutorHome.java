@@ -57,9 +57,11 @@ public class TutorHome extends AppCompatActivity {
         // Set LayoutManager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
         // Create Panel Data
         List<HomePanel> panelList = new ArrayList<>();
-        panelList.add(new HomePanel("Upcoming Sessions", "View and manage your upcoming mentoring sessions at a glance!", R.drawable.sessions_icon));
+        panelList.add(new HomePanel("Mentoring Schedules", "Submit your Google Calendar link here!", R.drawable.sessions_icon));
         panelList.add(new HomePanel("Manage Marketplace", "Ready to grow your shop? Start uploading stuff to sell", R.drawable.marketplace_icon));
         panelList.add(new HomePanel("Events Overview", "View your event details and make updates anytime.", R.drawable.calendar_icon));
 

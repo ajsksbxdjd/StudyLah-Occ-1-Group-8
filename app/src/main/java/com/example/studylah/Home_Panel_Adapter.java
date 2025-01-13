@@ -98,12 +98,15 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
         private final Context context;
         private final List<HomePanel> tutorPanelList;
         private BottomNavigationView bottomNavigationView;
+        // private BottomNavigationView bottomNavigationView;
+        private String username;
 
         public TutorPanelAdapter(Context context, List<HomePanel> tutorPanelList,BottomNavigationView bottomNavigationView) {
             this.context = context;
             this.tutorPanelList = tutorPanelList;
             this.bottomNavigationView = bottomNavigationView;
         }
+
 
         @NonNull
         @Override
@@ -126,12 +129,14 @@ public class Home_Panel_Adapter extends RecyclerView.Adapter<Home_Panel_Adapter.
                 int navItemId = -1;
 
                 switch (panel.getTitle()) {
-                    case "Upcoming Sessions":
+                    case "Mentoring Schedules":
                         intent = new Intent(context, Tutor_Schedules.class);
+                        intent.putExtra("username", username);
                         navItemId = R.id.nav_mentoring;
                         break;
                     case "Manage Marketplace":
                         intent = new Intent(context, Market_MainActivityTutor.class);
+                        intent.putExtra("username", username);
                         navItemId = R.id.nav_marketplace;
                         break;
                     case "Events Overview":
