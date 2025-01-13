@@ -39,7 +39,7 @@ public class Tutor_Schedules extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Tutors Schedules");
+            getSupportActionBar().setTitle("Mentoring Schedules");
         }
 
         // Drawer setup

@@ -107,8 +107,7 @@ public class StudentHome extends AppCompatActivity {
                 intent = new Intent(StudentHome.this, Mentoring_Tutors_List.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_home) {
-                intent = new Intent(StudentHome.this, StudentHome.class);
-                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
             } else if (id == R.id.side_nav_events) {
                 intent = new Intent(StudentHome.this, EventActivityStudent.class);
                 startActivity(intent);

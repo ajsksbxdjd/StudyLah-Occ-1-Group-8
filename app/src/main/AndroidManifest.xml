@@ -36,6 +36,9 @@
             android:name=".EventActivity"
             android:exported="false" />
         <activity
+            android:name=".EventActivityStudent"
+            android:exported="false" />
+        <activity
             android:name=".EventDetails"
             android:exported="false" />
         <activity
