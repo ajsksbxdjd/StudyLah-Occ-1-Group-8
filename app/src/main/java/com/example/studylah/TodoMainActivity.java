@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
@@ -129,6 +130,16 @@ public class TodoMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.todo_activity_main);
+
+        ImageButton back_Button = findViewById(R.id.back_button);
+        back_Button.setOnClickListener(view -> sendUpdatedTasksBack());
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                sendUpdatedTasksBack();
+            }
+        });
 
         // ✅ Initialize UI components
         categoryGrid = findViewById(R.id.categoryGrid);
@@ -454,5 +465,12 @@ public class TodoMainActivity extends AppCompatActivity {
                 System.out.println("No task received.");
             }
         }
+    }
+
+    private void sendUpdatedTasksBack() {
+        Intent resultIntent = new Intent();
+        resultIntent.putParcelableArrayListExtra("updatedTasks", todoTasks);
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 }
