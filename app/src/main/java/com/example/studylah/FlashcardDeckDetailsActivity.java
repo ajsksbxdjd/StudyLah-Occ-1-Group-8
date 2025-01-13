@@ -18,12 +18,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+/**
+ * Activity for viewing and managing flashcards within a deck.
+ * Users can add, search, edit, or delete flashcards.
+ */
 public class FlashcardDeckDetailsActivity extends AppCompatActivity {
-    private String deckName;
-    private ArrayList<Flashcard> cards;
-    private LinearLayout cardContainer;
-    private ArrayList<Flashcard> filteredCards;
-    private EditText searchCardsInput;
+    private String deckName; // ✅ Name of the deck
+    private ArrayList<Flashcard> cards; // ✅ List of flashcards in the deck
+    private ArrayList<Flashcard> filteredCards; // ✅ List of filtered flashcards (for search)
+    private LinearLayout cardContainer; // ✅ Container for displaying flashcards
+    private EditText searchCardsInput; // ✅ Search input field
     private boolean isReturningFromCreateFlashcard = false;
 
     @Override
@@ -31,6 +35,7 @@ public class FlashcardDeckDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flashcard_activity_deck_details);
 
+        // ✅ Get deck name from intent
         ImageButton backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(view -> {
             Intent resultIntent = new Intent();
