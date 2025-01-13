@@ -131,8 +131,7 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
             Intent intent;
 
             if (id == R.id.side_nav_find_tutor) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
-                startActivity(intent);
+                drawerLayout.closeDrawer(GravityCompat.START);
             } else if (id == R.id.side_nav_home) {
                 intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
@@ -166,10 +165,10 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
                 intent = new Intent(this, StudentHome.class);
                 startActivity(intent);
             } else if (id == R.id.nav_marketplace) {
-                intent = new Intent(this, StudentHome.class);
+                intent = new Intent(this, Market_MainActivityStudent.class);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivityStudent.class);
                 startActivity(intent);
             }
 

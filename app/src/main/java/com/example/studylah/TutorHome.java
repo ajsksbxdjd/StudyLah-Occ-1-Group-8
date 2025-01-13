@@ -119,14 +119,11 @@ public class TutorHome extends AppCompatActivity {
                 intent.putExtra("username", username);
                 startActivity(intent);
 
-                bottomNavigationView.setSelectedItemId(R.id.nav_marketplace);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(TutorHome.this, Tutor_Schedules.class);
                 intent.putExtra("username", username);
                 startActivity(intent);
 
-                // Set the mentoring tab as selected
-                bottomNavigationView.setSelectedItemId(R.id.nav_mentoring);
             } else if (id == R.id.nav_events) {
                 intent = new Intent(TutorHome.this, EventActivity.class);
                 startActivity(intent);

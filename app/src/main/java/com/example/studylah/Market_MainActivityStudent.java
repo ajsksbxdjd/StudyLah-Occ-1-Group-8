@@ -177,7 +177,7 @@ public class Market_MainActivityStudent extends AppCompatActivity {
                 intent = new Intent(this, Mentoring_Tutors_List.class);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivityStudent.class);
                 startActivity(intent);
             }
 

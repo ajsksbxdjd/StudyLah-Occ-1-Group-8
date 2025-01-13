@@ -119,7 +119,7 @@ public class Market_MainActivityTutor extends AppCompatActivity {
                 intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivity.class);
                 startActivity(intent);
             } else if (id == R.id.side_nav_schedules) {
                 intent = new Intent(this, Tutor_Schedules.class);
@@ -137,13 +137,13 @@ public class Market_MainActivityTutor extends AppCompatActivity {
             Intent intent;
 
             if (id == R.id.nav_home) {
-                intent = new Intent(this, StudentHome.class);
+                intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
             } else if (id == R.id.nav_mentoring) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, Tutor_Schedules.class);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivity.class);
                 startActivity(intent);
             }
 
