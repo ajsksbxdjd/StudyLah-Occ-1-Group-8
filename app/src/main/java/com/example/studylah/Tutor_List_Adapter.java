@@ -45,15 +45,6 @@ public class Tutor_List_Adapter extends RecyclerView.Adapter<Tutor_List_Adapter.
     public void onBindViewHolder(@NonNull TutorViewHolder holder, int position) {
         Tutor_List_Data tutor = tutorList.get(position);
 
-        // Decode Base64 profile picture
-        String profilePictureBase64 = tutor.getProfilePicture();
-        if (profilePictureBase64 != null && !profilePictureBase64.isEmpty()) {
-            byte[] decodedString = Base64.decode(profilePictureBase64, Base64.DEFAULT);
-            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            holder.profilePicture.setImageBitmap(decodedBitmap);
-        } else {
-            holder.profilePicture.setImageResource(R.drawable.mentoring_icon_student); // Default icon
-        }
 
         holder.tutorName.setText(tutor.getDisplayName());
         holder.tutorEmail.setText(tutor.getEmail());
@@ -86,7 +77,6 @@ public class Tutor_List_Adapter extends RecyclerView.Adapter<Tutor_List_Adapter.
             registrationDate = itemView.findViewById(R.id.tutor_registration_date);
             university = itemView.findViewById(R.id.tutor_university);
             subjects = itemView.findViewById(R.id.tutor_subjects);
-            profilePicture = itemView.findViewById(R.id.tutor_propic);
             cardView = itemView.findViewById(R.id.cardView);
         }
     }
