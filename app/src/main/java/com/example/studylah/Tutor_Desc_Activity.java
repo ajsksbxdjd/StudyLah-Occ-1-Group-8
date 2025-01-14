@@ -28,7 +28,6 @@ import java.util.Map;
 
 public class Tutor_Desc_Activity extends AppCompatActivity {
     private TextView displayNameTextView, emailTextView, registrationDateTextView, universityTextView, subjectsTextView, descriptionTextView;
-    private ImageView profilePictureImageView;
     private String gcLink; // Store the tutor's Google Calendar link
 
     @Override
@@ -43,7 +42,6 @@ public class Tutor_Desc_Activity extends AppCompatActivity {
         universityTextView = findViewById(R.id.tutor_university);
         subjectsTextView = findViewById(R.id.tutor_subjects);
         descriptionTextView = findViewById(R.id.tutor_bio);
-        profilePictureImageView = findViewById(R.id.tutor_propic);
 
         // Retrieve username from intent
         String username = getIntent().getStringExtra("username");
@@ -91,15 +89,6 @@ public class Tutor_Desc_Activity extends AppCompatActivity {
                 subjectsTextView.setText(getSubjectsString(tutor.getSubjects()));
                 descriptionTextView.setText(tutor.getDescription());
 
-                // Decode and set profile picture
-                String profilePictureBase64 = tutor.getProfilePicture();
-                if (profilePictureBase64 != null && !profilePictureBase64.isEmpty()) {
-                    byte[] decodedString = Base64.decode(profilePictureBase64, Base64.DEFAULT);
-                    Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                    profilePictureImageView.setImageBitmap(decodedBitmap);
-                } else {
-                    profilePictureImageView.setImageResource(R.drawable.mentoring_icon_student);
-                }
 
                 // Save the tutor's Google Calendar link
                 gcLink = tutor.getGcLink();

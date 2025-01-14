@@ -207,7 +207,6 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
                         subjectsMap.put("Moral", tutorJson.getInt("moral"));
                         subjectsMap.put("Islam", tutorJson.getInt("islam"));
 
-                        String profilePictureBase64 = tutorJson.optString("profile_picture", null);
 
                         Tutor_List_Data tutorData = new Tutor_List_Data(
                                 tutorJson.getString("username"),
@@ -217,7 +216,6 @@ public class Mentoring_Tutors_List extends AppCompatActivity {
                                 tutorJson.getString("university"),
                                 subjectsMap,
                                 tutorJson.getString("tutor_description"),
-                                profilePictureBase64, // Add Base64 string
                                 tutorJson.getString("gc_link")
                         );
 

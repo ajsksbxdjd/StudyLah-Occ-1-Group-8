@@ -32,16 +32,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="627dp"
             android:background="@color/primary_color"
             android:orientation="vertical"
             android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/tutor_propic"
-                android:layout_width="366dp"
-                android:layout_height="166dp"
-                app:srcCompat="@drawable/princess_gru" />
 
             <TextView
                 android:id="@+id/tutor_name"
@@ -49,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_bold"
                 android:text="Tutor Name"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -58,6 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="Email:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -67,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="example@example.com"
                 android:textSize="16sp" />
 
@@ -75,6 +72,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="Registered on:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -84,6 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="01 Jan 2023"
                 android:textSize="16sp" />
 
@@ -92,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="University Graduated:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -101,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="University Name"
                 android:textSize="16sp" />
 
@@ -109,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="Subjects:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -118,15 +120,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:fontFamily="@font/raleway_medium"
                 android:text="Mathematics, Science"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tutor_bio"
-                android:layout_width="340dp"
+                android:layout_width="383dp"
                 android:layout_height="209dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/subject_bg"
+                android:fontFamily="@font/raleway_medium"
                 android:padding="8dp"
                 android:text="Hi! I'm a tutor from Ipoh, Perak..."
                 android:textSize="16sp" />
@@ -137,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/primary_variant_color"
+                android:fontFamily="@font/raleway_semibold"
                 android:text="Book Now"
                 android:textColor="#FFFFFF" />
 

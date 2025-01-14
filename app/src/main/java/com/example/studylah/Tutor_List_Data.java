@@ -11,11 +11,9 @@ public class Tutor_List_Data {
     private Map<String, Integer> subjects; // Map for subjects and their statuses
     private String tutorDescription;
     private String gcLink;
-    private String profilePicture;
 
     public Tutor_List_Data(String username, String displayName, String email, String registrationDate,
-                           String university, Map<String, Integer> subjects, String tutorDescription,
-                           String profilePicture, String gcLink) {
+                           String university, Map<String, Integer> subjects, String tutorDescription, String gcLink) {
         this.username = username;
         this.displayName = displayName;
         this.email = email;
@@ -23,7 +21,6 @@ public class Tutor_List_Data {
         this.university = university;
         this.subjects = subjects;
         this.tutorDescription = tutorDescription;
-        this.profilePicture = profilePicture;
         this.gcLink = gcLink;
     }
 
@@ -32,9 +29,6 @@ public class Tutor_List_Data {
         return username;
     }
 
-    public String getProfilePicture() {
-        return profilePicture;
-    }
 
     public String getDisplayName() {
         return displayName;
