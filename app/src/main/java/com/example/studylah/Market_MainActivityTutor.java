@@ -141,6 +141,7 @@ public class Market_MainActivityTutor extends AppCompatActivity {
                 startActivity(intent);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(this, Tutor_Schedules.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
                 intent = new Intent(this, EventActivity.class);

@@ -172,9 +172,11 @@ public class Market_MainActivityStudent extends AppCompatActivity {
                 startActivity(intent);
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(this, Market_MainActivityStudent.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
                 intent = new Intent(this, EventActivityStudent.class);

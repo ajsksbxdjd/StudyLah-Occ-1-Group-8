@@ -47,6 +47,7 @@ public class EventActivityStudent extends AppCompatActivity {
 
 
     private NotificationManager notificationManager;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,6 +248,7 @@ public class EventActivityStudent extends AppCompatActivity {
                 return true;
             } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(this, Market_MainActivityStudent.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.side_nav_flashcards) {
                 intent = new Intent(this, FlashcardMainActivity.class);

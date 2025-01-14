@@ -45,6 +45,7 @@ public class EventActivity extends AppCompatActivity {
 
 
     private NotificationManager notificationManager;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,6 +219,7 @@ public class EventActivity extends AppCompatActivity {
 
             if (id == R.id.side_nav_schedules) {
                 intent = new Intent(this, Tutor_Schedules.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_home) {
@@ -230,6 +232,7 @@ public class EventActivity extends AppCompatActivity {
 
             } else if (id == R.id.side_nav_marketplace) {
                 intent = new Intent(this, Market_MainActivityTutor.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
 
             }
@@ -250,9 +253,11 @@ public class EventActivity extends AppCompatActivity {
 
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(this, Market_MainActivityTutor.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_mentoring) {
                 intent = new Intent(this, Tutor_Schedules.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             }
 

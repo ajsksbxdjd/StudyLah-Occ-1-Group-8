@@ -139,6 +139,7 @@ public class Tutor_Schedules extends AppCompatActivity {
 
             } else if (id == R.id.nav_marketplace) {
                 intent = new Intent(this, Market_MainActivityTutor.class);
+                intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
                 intent = new Intent(this, TutorHome.class);
