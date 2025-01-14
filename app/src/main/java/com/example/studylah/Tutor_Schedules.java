@@ -110,7 +110,7 @@ public class Tutor_Schedules extends AppCompatActivity {
                 return true;
 
             } else if (id == R.id.side_nav_home) {
-                intent = new Intent(this, StudentHome.class);
+                intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_events) {
