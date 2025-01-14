@@ -110,11 +110,11 @@ public class Tutor_Schedules extends AppCompatActivity {
                 return true;
 
             } else if (id == R.id.side_nav_home) {
-                intent = new Intent(this, StudentHome.class);
+                intent = new Intent(this, TutorHome.class);
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_events) {
-                intent = new Intent(this, Mentoring_Tutors_List.class);
+                intent = new Intent(this, EventActivity.class);
                 startActivity(intent);
 
             } else if (id == R.id.side_nav_marketplace) {
@@ -142,7 +142,7 @@ public class Tutor_Schedules extends AppCompatActivity {
                 intent.putExtra("username", username);
                 startActivity(intent);
             } else if (id == R.id.nav_events) {
-                intent = new Intent(this, TutorHome.class);
+                intent = new Intent(this, EventActivity.class);
                 startActivity(intent);
             }
 
