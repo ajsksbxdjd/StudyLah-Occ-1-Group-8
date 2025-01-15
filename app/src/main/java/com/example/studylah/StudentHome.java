@@ -189,6 +189,8 @@ public class StudentHome extends AppCompatActivity {
                 } else if (item.getItemId() == R.id.log_out) {
                     // Handle log-out logic
                     //handleLogout();
+                    startActivity(new Intent(StudentHome.this, MainActivity.class));
+
                     return true;
                 }
                 return false;

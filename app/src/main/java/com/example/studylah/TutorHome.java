@@ -171,7 +171,7 @@ public class TutorHome extends AppCompatActivity {
                     return true;
                 } else if (item.getItemId() == R.id.log_out) {
                     // Handle log-out logic
-                    finish();
+                    startActivity(new Intent(TutorHome.this, MainActivity.class));
                     return true;
                 }
                 return false;
