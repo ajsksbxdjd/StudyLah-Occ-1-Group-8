@@ -105,8 +105,8 @@
 
     <EditText
         android:id="@+id/editTextItemName2"
-        android:layout_width="156dp"
-        android:layout_height="39dp"
+        android:layout_width="147dp"
+        android:layout_height="37dp"
         android:background="@android:color/transparent"
         android:fontFamily="sans-serif-light"
         android:hint="RM"
@@ -116,7 +116,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:layout_constraintVertical_bias="0.017" />
